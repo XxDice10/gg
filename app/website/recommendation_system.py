@@ -87,14 +87,14 @@ def standard_recommendation(last_video):
             
             # by views
             cur.execute('SELECT id FROM {} ORDER BY views DESC LIMIT 20'.format(ab))
-
             # Fetch the results directly into a list comprehension
             by_views = [view_id[0] for view_id in cur.fetchall()]
+            
             
             # most liked
             cur.execute('SELECT id FROM {} ORDER BY likes DESC limit 20'.format(ab))
             by_likes = [like_id[0] for like_id in cur.fetchall()]
-            
+                        
             
             main_query1 = 'SELECT id FROM {} WHERE title = ?'.format(ab)
             ids = last_bit(main_query1, last_video)
@@ -113,4 +113,5 @@ def standard_recommendation(last_video):
         return ['error', e]
     finally:
         db.close()
+        
         

@@ -273,7 +273,7 @@ def find_similar_titles(target_title, titles, titles1, ):
     threshold = 0.15
     target_vector = vectorizer.transform([target_title])
     similarity_scores = cosine_similarity(target_vector, title_vectors)[0]
-    # print(similarity_scores)
+    print(title_vectors)
     similar_titles = [(titles[i], similarity) for i, similarity in enumerate(similarity_scores) if similarity > threshold]
     similar_titles.sort(key=lambda x: x[1], reverse=True)  # Sort similar titles by similarity score
     return_titles = [titlee[0] for titlee in similar_titles]
@@ -294,30 +294,32 @@ def standard_recommendation(last_video):
         with db:
             cur = db.cursor()
             
-            # by views
-            cur.execute(f'SELECT id FROM {ab} ORDER BY views DESC limit 10')
-            by_views = [view_id[0] for view_id in cur.fetchall()]
+            # Combine the queries to fetch both by views and by likes in a single query
+            cur.execute("""
+                            SELECT id
+                            FROM (
+                                SELECT id, ROW_NUMBER() OVER (ORDER BY views DESC) AS view_rank,
+                                        ROW_NUMBER() OVER (ORDER BY likes DESC) AS like_rank
+                                FROM {}
+                            ) AS subquery
+                            WHERE view_rank <= 20 OR like_rank <= 20;
+
+                        
+                        """.format(ab, ab))
             
-            # most liked
-            cur.execute(f'SELECT id FROM {ab} ORDER BY likes DESC limit 15')
-            by_likes = [like_id[0] for like_id in cur.fetchall()]
-            
-            
-            if last_video != "None":
-                # similar titles
-                cur.execute(f'SELECT title FROM {ab} WHERE play_id = ? LIMIT 1', (last_video, ))
-                target_title = cur.fetchone()[0]
+                        # Fetch the combined results
+            combined_results = cur.fetchall()
+
+            # Split the combined results into separate lists for views and likes
+            by_views = [result[0] for result in combined_results]
+
+            # cur.execute(f'SELECT title FROM {ab} LIMIT 1000')
+            # meta_title = [video_title[0] for video_title in cur.fetchall()]
+            # a = find_similar_titles('hot pretty teen slapped', meta_title, meta_title)
                 
-                print(f"Title = {target_title}")
-            else:
-                # similar titles
-                cur.execute(f'SELECT title FROM {ab} LIMIT 1000')
-                meta_title = [video_title[0] for video_title in cur.fetchall()]
-                a = find_similar_titles('hot pretty teen slapped', meta_title, meta_title)
-                
-                ids = [cur.execute(f'SELECT id FROM {ab} WHERE title = ?', (title,)).fetchone()[0] for title in a]
+            # ids = [cur.execute(f'SELECT id FROM {ab} WHERE title = ?', (title,)).fetchone()[0] for title in a]
             
-            return_list = list(set(by_views + by_likes + ids))
+            return_list = list(set(by_views))
             return return_list
     except sqlite3.Error as e:
         print('Sqlite Error', e)
@@ -333,5 +335,5 @@ def standard_recommendation(last_video):
         db.close()
         
 
-standard_recommendation('None')
-
+a = standard_recommendation('None')
+print(a)
