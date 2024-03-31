@@ -1,0 +1,7 @@
+{% if messages %}
+{% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show customalert" role="alert" id="autoDismissAlert">
+    <h3><strong>{{ message }}</strong></h3>
+  </div>
+{% endfor %}
+{% endif %}

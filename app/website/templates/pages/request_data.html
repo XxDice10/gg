@@ -1,0 +1,66 @@
+{% load static %}
+
+{% if user.is_authenticated %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{% static 'images/At.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <title>Requesting your data</title>
+    </head>
+    <body style="background-color: black;">
+
+        <h1 style="color:rgb(204, 58, 58); font-family:Arial, Helvetica, sans-serif;">{{site_name}}</h1>
+        <h2 style="color:rgb(204, 58, 58); font-family:Arial, Helvetica, sans-serif;">Please fill out the following information to request your data</h2>
+        
+        <form action="{% url 'process_data_request' %}" method="post" id="personal_dataID" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="first_last">
+                <input type="text" name="firstName1" id="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName1" id="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="phone_email">
+                <input type="email" name="email1" id="email1" placeholder="Email:" required>
+                <input type="text" name="phone1" id="phone1" placeholder="Phone:" required>
+            </div>
+            <select name="request_selection" id="request_selection">
+                <option value="request_data">Request Your Data</option>
+                <option value="delete">Delete Your Data</option>
+            </select>
+            <input type="text" name="dob" id="dob" placeholder="01/01/2000" required>
+
+            <div class="jumbo-photo-upload">
+                <h5 style="color: white;">Photo ID Upload</h5>
+                    <input type="file" name="imageInput" style="color: white;">
+                    <input type="submit" id="uploadimagebtn" value="Upload Image">
+                <div class="info" style="background-color: black; color: white; width: 50%;">
+                    <p>in order to prove your identity we request a copy of your Photo ID</p>
+                </div>
+            </div>
+
+            <button type="submit">Request</button>
+
+        </form>
+
+        <p style="color: red;">Please note that we respond to all data request within 30 days. Sometimes reaching over 60 days once we alert you to any difficulty or level of complexity</p>
+    </body>
+    </html>
+{% else %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/At.ico' %}" type="image/x-icon">
+    <title>Requesting Your Data denied!</title>
+</head>
+<body style="background-color: black;">
+
+    <h1 style="color:rgb(204, 58, 58); font-family:Arial, Helvetica, sans-serif;">Only Registered Users can apply to have their personal data met</h1>
+    <h2 style="color:rgb(204, 58, 58); font-family:Arial, Helvetica, sans-serif;"> please log in and return</h2>
+    
+</body>
+</html>
+{% endif %}

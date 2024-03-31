@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+    <meta name="description" content="{{ metas.description }}">
+    <meta name="rating" content="adult">
+    <meta name="application-name" content="{{site_name}}">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>{{ site_name }}.com{{endtitle}}</title>
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <input type="hidden" name="2257" id="page-on" value="index">
+
+    {% include 'index_things/hero_section.html' %}
+
+    {% include 'index_things/new_rated_videos.html' %}
+
+
+    {% include 'ad_shit/straight_index_ad.html' %}
+
+
+{% endblock content %}

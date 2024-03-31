@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>DMCA Notice of Copyright Infringemnet - {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="dmca">
+
+<div class="pppage">
+    <h1>DMCA</h1>
+    <small>Last Modified: {{updated}}</small>
+    <h2>Reporting Claims of Copyright Infringemnet.</h2>
+    <hr>
+
+    <p>
+        We regard claims of copyright infringement with utmost seriousness. Our commitment is to promptly address 
+        notices alleging copyright infringement in accordance with the Digital Millennium Copyright Act (DMCA) 
+        or any relevant intellectual property laws. Our response may entail the removal, blocking, or disabling 
+        of access to materials claimed to be involved in infringing activity, as well as potentially revoking 
+        the user's access to our website, <a href="{% url 'index1' %}">{{site_name}}.com</a>, or taking further appropriate actions.
+    </p>
+    <p>
+        If you believe that any content on {{site_name}}.com violates your copyright, you can submit a copyright takedown by 
+        following the link here <a href="{% url 'DMCA_takedown' %}">link</a>. Please take note that <b><span style="color: red;">These requests 
+            should ONLY be filied by the rightful copyright owner</span></b>. Or by an agent or good faith person acting 
+            upon the copyright owners behalf.
+    </p>
+
+    <p>
+        If we remove or disable any access to any material in response to a notice, we take steps to notfiy the user that uploaded the copyrighted content. In response to such notices we will take the following actions
+    </p>
+
+    <p><b>All copyright infringement notifications and counter-notifications must be written in English. Any attempted notifications written in foreign languages or using foreign characters may, at our discretion, be deemed non-compliant and disregarded.</b></p>
+
+    <ol>
+        <li>We remove the content and give the user a warning about what content they uploaded that went against copyright.</li>
+        <li>If this behavior continues we will give the user a temporary IP ban along with suspending their account for 30 days.</li>
+        <li>Lastly if they continue we will give them a permanent IP ban and if requested will give the notice reporter their contact info so they can take it from there.</li>
+    </ol>
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

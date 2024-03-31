@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>FAQ | {{site_name}}.com</title>
+{% endblock title %}
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="faq">
+
+<div class="pppage">
+    <h1>Frequently Asked Questions</h1>
+    <small>Last Updated: {{last_update}}</small>
+
+    {% include 'pages/legal/faq_nav.html' %}
+
+    <hr>
+
+    {% for question in questions %}
+        <div class="dropdown_question">
+            <div class="question" onclick="open_answer('{{question.0}}')">
+                <h3>{{ question.1 }}</h3>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+            <div class="answer" id="answer-{{question.0}}">
+                <p>{{question.2}}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

@@ -1,0 +1,32 @@
+<div class="newvideos">
+
+    <div class="video_selection">
+
+        {% for post in posts %} 
+            <div class="video_sel">
+                <h3 class="post-title">{{ post.title }}</h3>
+
+                <div class="thumbnail_container">
+                    {% if post.mediaType == 'picture' %}
+                        <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" style="cursor: pointer;">
+                    {% elif post.mediaType == 'video-w' %}
+                        <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="">
+                    {% elif post.mediaType == 'video-l' %}
+                        <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}">
+                    {% endif %}
+
+                    {% if post.mediaType == 'picture' %}
+                    <div class=""></div>
+                    {% else %}
+                    <div class="player1">
+                        <a href="{% url 'video' play_id=post.play_id %}"><i class="fa-regular fa-circle-play"></i></a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <h5 class="submission_alert">Submitted by <span><a href="#">{{post.submitted_by}}</a></span></h5>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>

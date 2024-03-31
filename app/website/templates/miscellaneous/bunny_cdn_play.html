@@ -1,0 +1,23 @@
+<style>
+    /* Media query for small screens */
+    .bunnytest {
+        width: 100%;
+        height: 500px;
+    }
+
+    @media(max-width: 550px) {
+      .bunnyTest {
+        height: 200px; /* Adjust height for small screens */
+        width: 100%;
+      }
+    }
+</style>
+
+<div class="bunnyTest" >
+    <iframe src="{{post.mediaPath}}" 
+    loading="lazy" 
+    style="border:0;top:0;height:100%;width:100%;" 
+    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+    allowfullscreen="true"></iframe>
+</div>
+

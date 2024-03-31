@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Member Login | {{site_name}}</title>
+{% endblock title %}
+
+
+
+
+
+{% block content %}
+
+<input type="hidden" name="2257" id="page-on" value="loginPage">
+
+
+<div class="login_containter">
+
+    <div class="image-left">
+        <img src="/static/images/login_image.jpg" alt="ahegao face girl" srcset="">
+
+        <div class="social-links">
+            <p>Follow us</p>
+            <div class="links">
+                <a href="{{discord}}"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-stuff">
+        <div class="toplogin">
+            <h1>{{ site_name }}</h1>
+            <h2>Sign in and get to business</h2>
+        </div>
+        
+        
+            <form action="" method="POST">
+                {% csrf_token %}
+        
+                <input type="text" name="username" id="username" placeholder="Username:">
+                <input type="password" name="password" id="pwd" placeholder="Password">
+        
+                <input type="submit" value="Login">
+        
+        
+            </form>
+        
+            <div class="registerNew" style="margin-top: 40px;">
+                <p>Not a member? <a href="{% url 'join' %}">Become a Member</a> </p>
+            </div>
+
+            <div class="otherstuff" style="margin-top: 80px;">
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock content %}

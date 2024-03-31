@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="description" content="">
+<meta name="rating" content="adult">
+{% endblock meta %}
+{% load static %}
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+
+{% block title %} 
+    <title>Search Warning</title>
+{% endblock title %}
+
+
+{% block content %}
+
+
+<input type="hidden" name="2257" id="page-on" value="searchWarning">
+
+{% include 'miscellaneous/legal_nav.html' %}
+
+<div class="search-warning">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <h1>Warning!</h1>
+    <hr>
+    <h2>Your search might pertain to illicit and harmful sexual content, such as non-consensual intimate imagery (NCII) or image-based sexual abuse (IBSA).</h2>
+    <h3>Recording and/or distributing NCII could potentially constitute a criminal offense in your locality and various other jurisdictions.</h3>
+
+    <h3>
+        Images portraying forced or non-consensual sexual activities, whether real or simulated, or the unauthorized use of someone's likeness, 
+        are prohibited on our platform. We prioritize addressing image-based sexual abuse and non-consensual intimate imagery. To learn more 
+        about our policies concerning such matters, please refer to our <a href="#">Trust & Safety Centre.</a>
+    </h3>
+
+    <h3>
+        If you have been victimized or possess direct information that an intimate image or video has been shared on our platform without 
+        consent, you have the option to report it using our <a href="#">Content Removal Request Form</a>. Further details about 
+        resources for victims are available through the <a href="https://cybercivilrights.org/ccri-safety-center">Cyber Civil Rights Initiative</a>.
+    </h3>
+
+    <a href="{% url 'index1' %}" id="returnButton">Return Home</a>
+
+</div>
+
+
+{% endblock content%}

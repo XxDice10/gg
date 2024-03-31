@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>{{user.username}}'s Videos - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="userUploads">
+<input type="hidden" name="username-" id="username-" value="{{user.username}}">
+
+<div class="banner_section" >
+    <div class="main_section">
+        <h1>{{site_name}}</h1>
+
+        <div class="user_holding">
+            <img src="/static/images/standard_pp.png" alt="user image">
+            <h3>{{user.username}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid #212121;">Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid rgb(180, 50, 50);">Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid #212121;">Likes</a>
+        <a href="{% url 'submission' %}" style="border-bottom: 2px solid #212121;">Upload</a>
+    </div>
+    <div class="right">
+        <a href="{% url 'user_edit_profile_page' %}">Edit Profile</a>
+        <a id="share_user_button" onclick="open_share_tab()"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+<div class="user_intro">
+    <h3>Your Images</h3>
+    <hr>
+
+    {% if posts %}
+        {% include 'authenticate/user_uploads2.html' %}
+    {% else %}
+        <div class="no_likes">
+            <i class="fa-solid fa-image"></i>
+            <h3>You don't have any pictures</h3>
+        </div>
+    {% endif %}
+</div>
+
+<script src="{% static 'js/javascript-cdn-user-share.js' %}"></script>
+
+{% endblock content %}

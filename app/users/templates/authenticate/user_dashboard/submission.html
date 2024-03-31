@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>New Content Submission - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="user_profile">
+<input type="hidden" name="username-" id="username-" value="{{user.username}}">
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid #212121;">Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid #212121;">Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid #212121;">Likes</a>
+        <a href="{% url 'submission' %}" style="border-bottom: 2px solid rgb(180, 50, 50);">Upload</a>
+    </div>
+    <div class="right">
+        <a href="{% url 'user_edit_profile_page' %}">Edit Profile</a>
+        <a id="share_user_button" onclick="open_share_tab()"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+
+<div class="main_submission">
+    <div class="top-part">
+        <h3>Submit Your Content Here:</h3>
+    </div>
+    <small>Please follow the <a href="{% url 'rules' %}">Rules</a> and be sure to read <a href="{% url 'termsOfUse' %}">Terms of Service</a> before submitting your content.</small>
+    <small>As of right now we are only allowing video content</small>
+
+    <form action="{% url 'process_submission_content' %}" method="POST" enctype="multipart/form-data" id="submission-form">
+        {% csrf_token %}
+        <label for="new_post_title">Video Title</label>
+        <input type="text" name="new_post_title" id="new_post_title" required>
+
+        <label for="new_post_tags">Video Tags</label>
+        <input type="text" name="new_post_tags" id="new_post_tags" required placeholder="s&m, big boobs, sex">
+
+
+        <div class="video_submission">
+            <h5 style="color: white;">Upload your video here</h5>
+                <input type="file" name="videoInput" style="color: white;">
+            <div class="info" style="background-color: black; color: white; width: 50%;">
+                <p>Your video should be under <b>40 mb</b> to be processed by our servers.</p>
+            </div>
+        </div>
+
+
+        <div class="thumbnail_submission">
+            <h5 style="color: white;">Upload your thumbnail</h5>
+                <input type="file" name="imageInput" style="color: white;">
+            <div class="info" style="background-color: black; color: white; width: 50%;">
+                <p>Upload your thumbnail for the video here</p>
+            </div>
+        </div>
+
+
+        <button type="submit">Submit</button>
+
+        <div class="agreement" style="margin-top: 2%;">
+            <input type="checkbox" id="agreement" name="agreement" value="yes">
+            <label for="agreement"> I agree with the <a href="#">Terms of Service</a> and <a href="#">Rules</a>.</label><br>
+        </div>
+    </form>
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-user-submission.js' %}"></script>
+<script src="{% static 'js/javascript-cdn-user-share.js' %}"></script>
+
+{% endblock content %}

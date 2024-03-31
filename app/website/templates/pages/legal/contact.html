@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>Contact Us | {{site_name}} Support</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="contact0form" id="page-on" value="contact0form">
+
+<div class="pppage">
+    <h1>Need Help? Contact Us.</h1>
+    <hr>
+    <h3>{{site_name}} Support</h3>
+    <p>
+        Require assistance? Kindly complete the form provided below. If you possess an account with {{site_name}}, 
+        please ensure to log in beforehand to facilitate a quicker resolution of your request.
+    </p>
+
+    <form action="{% url 'contact_form_submitted' %}" id="contact-formID" method="post">
+        {% csrf_token %}
+        <div class="contact-email">
+            <label for="contact-emailInput">Email:</label>
+            <input type="email" name="contact-emailInput" id="contact-emailInput">
+        </div>
+
+        <div class="contact-email">
+            <label for="contact-nameInput">Name:</label>
+            <input type="name" name="contact-nameInput" id="contact-nameInput">
+        </div>
+
+        <div class="contact-email">
+            <label for="type-contact-form">Type:</label>
+            <select name="type-contact-form" id="type-contact-form">
+                <option value="Select Support Type" selected>Select Support Type</option>
+                <option value="Bug">Bug</option>
+                <option value="General Inquiries">General Inquiries</option>
+            </select>
+        </div>
+
+        <div class="contact-email">
+            <label for="type-contact-message">Message:</label>
+            <textarea name="type-contact-message" id="type-contact-message" cols="30" rows="10"></textarea>
+        </div>
+
+        <button type="submit" id="content0">Send</button>
+    </form>
+
+
+    <p>For any content removal requests please use our <a href="{% url 'DMCA_takedown' %}">content removal form</a></p>
+
+    <hr>
+    <h3>
+        Feedback And Suggestions?
+    </h3>
+    <p>
+        Got an awesome idea? Craving a new feature on {{site_name}}? Share your feedback or suggestions with the {{site_name}} 
+        team by visiting our <a href="{% url 'help_improve' %}">Feedback Forum</a>. Whether it's a brilliant idea or you want to vote on others, we welcome your 
+        input. Rest assured, every idea will be carefully considered and evaluated.
+    </p>
+
+    <br>
+    <h3>Have You Checked Out Our FAQ?</h3>
+    <p>
+        Prior to submitting feedback, consider visiting our FAQ page. It could address any inquiries you have regarding the site, saving you the 
+        need to compose a detailed email. To access the FAQ page, simply <a href="{% url 'faq' %}">click here</a>.
+    </p>
+
+    <br>
+    <h3>Copyright/DMCA Issue?</h3>
+    <p>
+        For any copyright infringement issues please email us and check out our <a href="{% url 'DMCA' %}">DMCA takedowns</a>.
+    </p>
+
+    <br>
+    <h3>Contact Removal</h3>
+    <p>For any content removal requests please use our <a href="{% url 'DMCA_takedown' %}">content removal form</a></p>
+
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

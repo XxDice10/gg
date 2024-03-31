@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="description" content="See {{username}}' porn videos and main profile, Here on {{site_name}}.com. Check out {{forMETA}} the best and free porn videos, GIFs and images from {{username}}.">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>{{username}}'s Porn Videos - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="profile_visit">
+
+<div class="banner_section" >
+    <div class="main_section">
+        <h1>{{site_name}}</h1>
+
+        <div class="user_holding">
+            <img src="/static/images/standard_pp.png" alt="user image">
+            <div class="username_section">
+                <h2>{{username}}</h2>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="#" style="border-bottom: 2px solid rgb(180, 50, 50);">Home</a>
+        <a href="#" style="border-bottom: 2px solid #212121;">Videos</a>
+        <a href="#" style="border-bottom: 2px solid #212121;">Pictures & GIFs</a>
+    </div>
+    <div class="right">
+        <a href="#"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+
+<div class="profile_visit">
+    <div class="top">
+        <h3>About {{username}}</h3>
+        <p>{{about}}</p>
+    </div>
+    <div class="bottom">
+        <p>Gender: {{gender}}</p>
+        <p>Profile Views: {{profileViews}}</p>
+        <p>Ethnicity: None</p>
+        <p>Video Views: {{videoViews}}</p>
+    </div>
+    <hr>
+</div>
+
+<hr class="hrclass">
+
+<div class="users_videos">
+    <h3>{{username}}'s Videos</h3>
+
+    {% if posts %}
+    {% include 'authenticate/profile_uploads.html' %}
+{% else %}
+    <div class="no_likes">
+        <i class="fa-solid fa-video-slash"></i>
+        <p>You don't have any uploads</p>
+    </div>
+{% endif %}
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>Help Us Improve | {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="helpUs">
+
+<div class="pppage">
+    <h1>Your Input is Always Important</h1>
+    <hr>
+    <p>We value your feedback! Please take a moment to let us know how we can improve your experience on our website:</p>
+    <form action="" method="post" id="improveForm">
+        {% csrf_token %}
+        <div id="improve-input">
+            <label for="feedback">Your Feedback:</label><br>
+            <input type="text" name="improve_feedback_title" id="improve_feedback_title" placeholder="Title">
+            <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Give us your feedback;"></textarea><br>
+            <input type="submit" value="Submit">
+            <div class="improve-tags">
+                <button id="improve-bug" onclick="button_clicked('bug')" type="button">Bug</button>
+                <button id="improve-sug" onclick="button_clicked('sug')" type="button">Suggestion</button>
+                <button id="improve-issue" onclick="button_clicked('issue')" type="button">Issue</button>
+            </div>
+        </div>
+        <div id="improve-thankyou">
+            <p>Thank you for your feedback;</p>
+        </div>
+    </form>
+
+    <hr>
+    <h3>Vote on others:</h3>
+</div>
+
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

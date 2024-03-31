@@ -1,0 +1,322 @@
+body {
+  background-color: black;
+}
+
+.top_dash_section {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.top_dash_section .section1 a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.top_dash_section .section1 a:hover {
+  color: lightgray;
+}
+.top_dash_section .section1 span {
+  color: lightgray;
+  margin: 0 5px;
+}
+.top_dash_section .section2 a {
+  color: white;
+  text-decoration: none;
+}
+.top_dash_section .section2 a:hover {
+  color: lightgray;
+}
+
+.first_section {
+  width: 90%;
+  margin: auto;
+}
+.first_section h5 {
+  color: white;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.stuff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stuff small {
+  color: white;
+}
+
+.banner_section {
+  border-top: 2px solid rgb(204, 58, 58);
+  border-bottom: 2px solid rgb(204, 58, 58);
+  width: 100%;
+  height: 40%;
+  position: relative;
+  background-image: url("");
+  margin-top: 2%;
+}
+.banner_section .main_section h1 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 40px;
+  cursor: none;
+  color: rgb(204, 58, 58);
+}
+.banner_section .main_section .user_holding {
+  margin-left: 10px;
+  position: absolute;
+  bottom: 5;
+  display: flex;
+  align-items: end;
+}
+.banner_section .main_section .user_holding img {
+  width: 150px;
+  margin-right: 10px;
+}
+.banner_section .main_section .user_holding h3 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.banner_section .main_section .username_section {
+  display: flex;
+  align-items: center;
+}
+.banner_section .main_section .username_section h2 {
+  color: white;
+}
+.banner_section .main_section .username_section i {
+  margin-left: 5px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.user_stuff {
+  display: flex;
+  background-color: #212121;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  z-index: 400;
+}
+.user_stuff .left a {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+}
+.user_stuff .left a:hover {
+  text-decoration: underline;
+}
+.user_stuff .right a {
+  background-color: #333;
+  padding: 6px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.user_intro {
+  width: 97%;
+  margin: auto;
+  margin-top: 1%;
+  position: relative;
+  z-index: 400;
+}
+.user_intro h3 {
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.user_intro a {
+  color: rgb(204, 58, 58);
+  text-decoration: none;
+}
+.user_intro a:hover {
+  text-decoration: underline;
+}
+.user_intro .other-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 95%;
+  margin: auto;
+  color: white;
+}
+.user_intro p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.no_likes {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+.no_likes i {
+  font-size: 50px;
+}
+.no_likes h3 {
+  color: #333;
+}
+
+.all_liked_posts {
+  border: 2px solid white;
+  display: grid;
+  grid-template-columns: f1fr 1fr 1fr;
+}
+
+.profile_visit {
+  width: 97%;
+  margin: auto;
+  margin-top: 1%;
+  position: relative;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile_visit .bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.profile_visit h3 {
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.profile_visit .other-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 95%;
+  margin: auto;
+  color: white;
+}
+.profile_visit p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.users_videos {
+  width: 95%;
+  margin: auto;
+}
+.users_videos h3 {
+  color: rgba(255, 255, 255, 0.815);
+  width: 95%;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.edit_area {
+  position: relative;
+  z-index: 400;
+}
+.edit_area .thumbnail_upload {
+  display: flex;
+  align-items: center;
+}
+.edit_area .thumbnail_upload .image_upload_info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 10px;
+}
+.edit_area form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.edit_area form input[type=text] {
+  border: none;
+  margin-bottom: 10px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #212121;
+  color: white;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+}
+.edit_area form input[type=text]:focus {
+  outline: none;
+  background-color: #212121;
+  border-bottom: 2px solid rgb(204, 58, 58);
+}
+.edit_area form textarea {
+  border: none;
+  margin-bottom: 10px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #212121;
+  color: white;
+  padding: 10px;
+  resize: none;
+  border-bottom: 2px solid transparent;
+}
+.edit_area form textarea:focus {
+  outline: none;
+  background-color: #212121;
+  border-bottom: 2px solid rgb(204, 58, 58);
+}
+.edit_area form label {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+.edit_area form small {
+  color: #dd4d4d;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+.edit_area form select {
+  border: none;
+  margin-bottom: 10px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #212121;
+  color: white;
+  padding: 10px;
+}
+.edit_area form .errorLabel {
+  color: red;
+  font-size: 12px;
+  margin-top: 0px;
+  display: none;
+}
+.edit_area button {
+  width: 50%;
+  border: none;
+  color: white;
+  background-color: rgb(204, 58, 58);
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.edit_area button:hover {
+  background-color: rgb(180, 50, 50);
+}
+
+#messageTodeclare {
+  color: red;
+  width: 50%;
+  display: none;
+}
+
+.hrclass {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 10px;
+  color: rgb(204, 58, 58);
+}/*# sourceMappingURL=users.css.map */

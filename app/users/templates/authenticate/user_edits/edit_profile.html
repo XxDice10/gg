@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Editing Profile - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="userUploads">
+
+    {% include 'miscellaneous/alert_messages.html' %}
+
+<div class="banner_section" >
+    <div class="main_section">
+        <h1>{{site_name}}</h1>
+
+        <div class="user_holding">
+            <img src="/static/images/standard_pp.png" alt="user image">
+            <h3>{{user.username}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid #212121;" >Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid #212121;" >Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid #212121;">Likes</a>
+    </div>
+    <div class="right">
+        <a href="{% url 'user_edit_profile_page' %}">Edit Profile</a>
+        <a href="#"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+<input type="hidden" name="suname" value="{{user.username}}" id="userID">
+
+<div class="user_intro">
+    <h3>Edit Your Profile</h3>
+    <hr>
+
+    <p id="messageTodeclare"></p>
+
+    <div class="edit_area">
+        <form action="" id="user_info_form">
+            {% csrf_token %}
+
+            <label for="user-username">Username:</label>
+            <input type="text" name="user-username" id="user-username" value="{{user_username}}" placeholder="Username:">
+            <label for="user-username" id="errorLabel_UsernameID" class="errorLabel"></label>
+
+            <label for="user-email">Email:</label>
+            <input type="text" name="user-email" id="user-email" value="{{user_email}}" placeholder="Email:">
+            <label for="user-email" id="errorLabel_EmailID" class="errorLabel"></label>
+
+            {% include 'authenticate/stuff/user_gender_picker.html' %}
+
+            <label for="user-dob">Date of Birth:</label>
+            <input type="text" name="user-dob" id="user-dob" value="{{user_dob}}" placeholder="01/01/2000:">
+            <small>Example: 01/01/2000</small>
+            <label for="user-dob" id="errorLabel_DOBID" class="errorLabel"></label>
+
+            <label for="user-fname">First Name:</label>
+            <input type="text" name="user-fname" id="user-fname" value="{{user_fname}}" placeholder="John:">
+            <label for="user-fname" id="errorLabel_FnameID" class="errorLabel"></label>
+
+            <label for="user-lname">Last Name:</label>
+            <input type="text" name="user-lname" id="user-lname" value="{{user_lname}}" placeholder="Smith:">
+            <label for="user-lname" id="errorLabel_LnameID" class="errorLabel"></label>
+            <small>Your first, last name, date of birth or email will NOT be shown on your public profile, only your username and profile description.</small>
+
+            <label for="pd">Profile Description:</label>
+            <textarea name="pd" id="pd" cols="30" rows="7" placeholder="Profile Description">{{pd}}</textarea>
+
+            <button type="submit">Save</button>
+            
+        </form>
+
+
+    </div>
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-userupdating.js' %}"></script>
+{% endblock content %}

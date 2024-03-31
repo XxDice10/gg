@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="RATING" content="RTA-5042-1996-1400-1577-RTA" />
+<!-- {% include 'ad_shit/ad_scripts.html' %} -->
+{% endblock meta %}
+{% load static %}
+
+{% block styles %} 
+<link rel="stylesheet" href="{% static 'css/video_page.css' %}">
+{% endblock styles %}
+
+
+
+{% block title %} 
+    <title>{{video_title}} - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+
+
+{% block content %}
+
+<input type="hidden" name="2257" id="page-on" value="videoPlayer">
+<input type="hidden" name="video_playID" id="video_playID" value="{{video_play_id}}">
+
+{% include 'ad_shit/ad_block_warning2.html' %}
+
+
+{% include 'ad_shit/video_banner_ad.html' %}
+
+
+<div class="Main_contentContainer">
+    <div class="at-leftVideo_area">
+        {% for post in posts %}
+            <div class="main-title">
+                <div class="title">
+                    <h1>{{post.title}}</h1>
+                    <p>{{post.duration}}</p>
+                </div>
+                <div class="user">
+                    <a href="{% url 'profile_page' username=post.submitted_by %}" id="submitted_by">{{post.submitted_by.title}}</a>
+                    {% for tag in post.tags.split %}
+                        <a href="{% url 'search' value=tag %}" class="tags-">#{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% if post.embed == "False" %}
+                {% include 'miscellaneous/bunny_cdn_play.html' %}
+            {% else %}
+                {% include 'miscellaneous/iframe_embed.html' %}
+            {% endif %}
+            
+            <div class="bottom_layer">
+                <div class="left">
+
+                    <div class="views">
+                        <i class="fa-regular fa-eye"></i>
+                        <p>{{post.total_views}}</p>
+                    </div>
+
+                    <div class="thumbs">
+                        {% include 'miscellaneous/video_likes.html' %}
+                        {% include 'miscellaneous/video_unlikes.html' %}
+                    </div>
+
+                    <div class="heart">
+                        {% include 'miscellaneous/post_comments_likes.html' %}
+                    </div>
+
+                </div>
+
+                <div class="right">
+                    <div class="download">
+
+                    </div>
+                    <div class="thing" >
+                        <a onclick="share_video()"><i class="fa-solid fa-share-nodes"></i> Share</a>
+                    </div>
+                </div>
+            </div>
+            
+            <input type="hidden" name="vidoe_id" id="Video_id" value="{{post.play_id}}">
+        {% endfor %}
+    </div>
+
+    <div class="at-rightVideo_area">
+
+        <div class="ad" id="ad-element" data-banner-id="534646">
+
+        </div>  
+
+        <div class="ad" id="ad-element2" data-banner-id="534668">
+
+        </div>  
+
+         
+    </div>
+
+</div>
+
+
+<div class="newvideos-videopage">
+    <h3>Recommended Porn</h3>
+
+    <hr>
+    <div class="video_selection">
+
+        {% for post in re %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}">
+                        {% endif %}
+    
+                        <div class="player1">
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<div class="newvideos-videopage" id="secondRound">
+    <div class="video_selection">
+
+        {% for post in re %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}">
+                        {% endif %}
+    
+                        <div class="player1">
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+<div class="mobile-ad">
+    
+</div>
+
+<hr>
+
+
+<div class="main_comments" id="comment_target">
+    <h3>All Comments ({{num}})</h3>
+
+    {% include 'miscellaneous/video_comments.html' %}
+
+    {% if num == "0" %} 
+        <button disabled>Show Comments</button>
+    {% else %}
+    <button onclick="show_comments()">Show Comments</button>
+    <div class="comments_containier" id="comments_containierID">
+
+    </div>
+    {% endif %}
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-videos-page.js' %}"></script>
+
+{%  endblock content %}

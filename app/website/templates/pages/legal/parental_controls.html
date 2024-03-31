@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>Parental Controls - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="pc">
+
+<div class="pppage">
+    <h1>Parental Controls</h1>
+    <small>Last Modified: {{updated}}</small>
+
+    <h2>
+        The {{site_name}} platform, a safe and welcoming space designed for mature audiences. 
+        Our priority is ensuring the security and positivity of our community, as well as maintaining 
+        the integrity of our platform.
+    </h2>
+    <hr>
+    <h3 style="box-shadow: 0px 0px 10px 0px #cc3a3a6d; padding: 10px; border-radius: 5px;">
+        {{site_name}}.com is fully RTA compliant, we believe strongly in (ASACP) and we strictly reserve those of legal age.
+    </h3>
+
+    <p>
+        As we state and outlined in our <a href="#" > Terms of Service</a>, access and viewing our platform is strictly limited to those who confirm and affirm that :
+    </p>
+
+
+    <ul style="box-shadow: 0px 0px 10px 0px #cc3a3a6d; padding: 10px; border-radius: 5px;">
+        <li style="margin-left: 10px;">Individuals accessing our platform must be either 18 years old or older, 
+            or 21 years old or older, depending on the location from which they access our services.</li>
+
+        <li style="margin-left: 10px;">They must possess the capability to understand and agree to the terms, 
+            obligations, affirmations, representations, and warranties outlined in our Terms of Service, 
+            and be able to adhere to and fulfill those terms.</li>
+        
+        
+        <li style="margin-left: 10px;">
+            The laws of their jurisdiction must permit them to receive or view sexually explicit content on our platform.
+        </li>
+    </ul>
+
+    <p>
+        To uphold our terms and promote the safety of minors, we've made sure that {{site_name}} adheres to RTA [Restricted to Adults] standards. This means that every page can be easily blocked using parental control tools.
+    </p>
+
+    <p>We encourage parents to stay vigilant about their children's online activities and use parental controls to ensure their safety in today's digital world. We trust that parents are in the best position to oversee their children's online behavior with the various tools provided by modern operating systems and devices.</p>
+
+    <p>Below, we've outlined some straightforward guidelines and tips on how to minimize the risk of your child accessing inappropriate content.</p>
+
+    <div class="box-children">
+        <h3><i class="fa-solid fa-lock"></i> Making the Internet Child-Friendly</h3>
+        <p>
+            There are many tools available for parents to make the internet safer for their children. ISPs, 
+            device manufacturers, and operating system developers have ensured an easy route to setting up 
+            parental controls. They all use simple step-by-step instructions which you only need to follow 
+            once, giving you control over your children’s browsing habits beyond simple supervision.
+        </p>
+
+        <p>
+            {{site_name}}'s Restricted to Adults tags ensure that all such controls can automatically block our site when enabled by parents.
+        </p>
+    </div>
+
+
+    <div class="dropdown_question">
+
+        <div class="question" onclick="open_answer('1')">
+            <h3>Parental Control Settings - Desktop Services</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer" id="answer-1">
+            <p>
+                All modern operating systems have built-in parental controls and they are simple to activate requiring only a few minutes to setup. Microsoft Windows 10 for instance, allows parents to easily setup accounts for their children, restrict which apps and programs they can open, and block inappropriate websites at the touch of a button.
+            </p>
+
+            <p>
+                Visit the <a href="https://www.microsoft.com/en-us/microsoft-365/family-safety?ocid=family_signin&rtc=1">Microsoft Family Safety</a> site for more information.
+            </p>
+
+            <p>
+                Apple devices such as Macs, iPads, and iPhones have similar parental controls which can be enabled by following the instructions on Apple’s dedicated <a href="https://www.apple.com/families/">Families site</a>. 
+            </p>
+        </div>
+
+
+    </div>
+
+
+    <div class="dropdown_question">
+
+        <div class="question" onclick="open_answer('2')">
+            <h3>Parental Control Settings - Mobile Devices</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer" id="answer-2">
+            <p>
+                As many children use their own personal devices to access the internet, mobile operating systems now include tools to ensure 
+                parents can stay firmly in control of their children’s browsing habits.
+            </p>
+
+            <p>
+                iOS devices from Apple such as iPhones and iPads can block inappropriate content, set screen time limits and prevent 
+                apps from being installed without permission. More information is available on Apple’s dedicated <a href="https://www.apple.com/families/">Families site</a>.
+            </p>
+
+            <p>
+                Android products such as smartphones and tablets contain similar protections, allowing parents to choose what their children can see and do on their personal devices. The <a href="https://safety.google/families/">Google Safety Centre</a> will walk you through the setup process.
+            </p>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="dropdown_question">
+
+        <div class="question" onclick="open_answer('3')">
+            <h3>Internet Service Providers</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer" id="answer-3">
+            <p>
+                Most, if not all Internet Service Providers (ISPs) offer protections to limit the websites available to your 
+                home or handheld device. Such services block all traffic to inappropriate websites and can usually be enabled 
+                by logging into your ISP account online. Simply contact your ISP and they can advise how to enable their content blocks.
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="dropdown_question">
+
+        <div class="question" onclick="open_answer('4')">
+            <h3>Dedicated Parental Control Software</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer" id="answer-4">
+            <p>
+                In addition to parental controls provided free of charge by operating systems, device manufacturers and ISPs, 
+                there are multiple parental control apps available from third parties. A non-exhaustive list is provided below:
+            </p>
+
+            <ul>
+                <li><a href="https://www.qustodio.com/en/">Qustodio</a></li>
+                <li><a href="https://www.kaspersky.co.uk/safe-kids">Kapersky Safe Kids</a></li>
+                <li><a href="https://www.netnanny.com/">Net Nanny</a></li>
+                <li><a href="https://us.norton.com/products/norton-family">Norton Family</a></li>
+                <li><a href="https://www.mobicip.com/">Mobicip</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="dropdown_question">
+
+        <div class="question" onclick="open_answer('5')">
+            <h3>More Information on Digital Parenting and Supervision.</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer" id="answer-5">
+            <p>
+                If you want to find out more information on protecting your children online, how to talk to them, and how to set and agree limits, there are several resources available.
+            </p>
+
+
+            <ul>
+                <li><a href="https://www.fosi.org/">FOSI - Family Online Safety Institue</a></li>
+                <li><a href="https://www.saferinternet.org.uk/">UK Safer Internet Centre</a></li>
+                <li><a href="https://www.internetmatters.org/">Internetmatters.org</a></li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

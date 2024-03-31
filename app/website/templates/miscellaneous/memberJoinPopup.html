@@ -1,0 +1,15 @@
+    
+    
+    
+    
+    
+    <!-- Popup container -->
+    <div class="popup" id="loginPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Not a member? Join Now for free or login.</h2>
+            <p>It seems you are not logged in. Please log in or join to like posts.</p>
+            <a href="{% url 'login' %}"><button>Login</button></a>
+            <a href="{% url 'join' %}"><button>Join Now</button></a>
+        </div>
+    </div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Search "{{searchResult}}" | {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="search_result">
+
+
+
+{% endblock content%}

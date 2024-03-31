@@ -1,0 +1,76 @@
+
+<nav>
+
+    <div class="first">
+        <a href="{% url 'index1' %}" id="homepage">
+            <div class="logo">
+                <img src="/static/images/Dice.png" alt="real misogyny home page link" style="border-radius: 5px;">
+            </div>
+        </a>
+    </div>
+
+
+    <div class="search">
+        <form action="" id="searchFormID1">
+            {% csrf_token %}
+            <div class="inputbox" id="inputboxID">
+                <input type="text" name="search" id="searchID" placeholder="Search..." oninput="open_dropwdown()">
+
+                <div class="dropdown-search" onmouseover="open_search()" id="popup-element" onmouseout="hidePopup()">
+                    <!-- Search query results go here -->
+                </div>
+            </div>
+
+            <button type="submit" id="secondbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+
+
+    <div class="last">
+
+
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Profile</a></li>
+                    <li><a href="{% url 'submission' %}">Upload <i class="fa-solid fa-cloud-arrow-up"></i></a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                {% else %}
+                    <li><a href="{% url 'join' %}">Join</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'join' %}">Upload <i class="fa-solid fa-cloud-arrow-up"></i></a></li>
+                {% endif %}
+                <li><a href="{% url 'notice' %}">NOTICE <i class="fa-solid fa-circle-exclamation"></i></a></li>
+            </ul>
+
+
+
+            {% if user.is_authenticated %}
+                <button type="button" id="userBtn1" class="end1"><a><i class="fa-solid fa-user"></i></a></button>
+            {% else %}
+                <!-- <button type="button" id="userBtn" class="end1" ><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i></a></button> -->
+                <button type="button" id="userBtn1" class="end1"><i class="fa-solid fa-user"></i></button>
+            {% endif %}
+
+
+        <button id="hamburgerPie" onclick="mobileHamburger()"><i class="fa-solid fa-bars"></i></button>
+
+    </div>
+
+
+    <div class="mobile_nav">
+        <div class="first1">
+            <i class="fa-solid fa-bars" onclick="open_mobileMenu()"></i>
+        </div>
+
+        <div class="second1">
+            <a href="{% url 'index1' %}"><p>{{ site_name }}</p></a>
+        </div>
+
+        <div class="third1">
+            <i class="fa-solid fa-magnifying-glass" onclick="open_mobileSearch()"></i>
+            <i class="fa-solid fa-circle-user" onclick="open_mobileUser()"></i>
+        </div>
+    </div>
+
+</nav>
+

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+{% endblock meta %}
+
+
+
+
+{% block title %} 
+    <title>Join Now! Become a Member of RealMisogyny.com</title>
+{% endblock title %}
+
+
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="registerPage">
+
+{% if form.errors %}
+    <div class="creation_form_error"><p>There was an error with your form</p></div>
+{% endif %}
+
+
+<section id="registerH1_section">
+    <h1>Register and Join Today!</h1>
+    <h2>Members get to like, comment, and submit content.</h2>  
+</section>
+
+
+<div class="register_containter" id="register_containterID">
+
+    <div class="register_form">
+        <form action="{% url 'join' %}" method="POST" id="userRegistrationFormID">
+            {% csrf_token %}
+    
+            {{ form.as_p }}
+    
+            <button type="submit">Join Now!</button>
+
+            <div class="agreeBox">
+                <input type="checkbox" name="agree2" id="agree2">
+                <label for="agree2">Check this box before creating an account. By doing so, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.</label>
+            </div>
+        
+        </form>
+    </div>
+
+</div>
+
+
+<div class="error-warning" id="error-warningID">
+    <p>You need to check the box to agree to our Privacy Policy and Terms of Service!</p>
+</div>
+
+<div class="already" style="text-align: center; margin-top: 10px;">
+    <p style="color: white;">Already a memeber? <a href="{% url 'login' %}" style="color: white;">Login Now!</a></p>
+</div>
+
+
+
+{% endblock content %}

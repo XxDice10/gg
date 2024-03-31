@@ -1,0 +1,48 @@
+<label for="user-gender">Gender:</label>
+
+<select name="user-gender" id="user-gender">
+    {% if user_gender == 'Male' %}
+        <option value="Male" selected>Male</option>
+        <option value="Female">Female</option>
+        <option value="Couple">Couple</option>
+        <option value="Non-binary">Non-binary</option>
+
+
+    {% elif user_gender == "Female" %}
+        <option value="Male">Male</option>
+        <option value="Female" selected>Female</option>
+        <option value="Couple">Couple</option>
+        <option value="Non-binary">Non-binary</option>
+
+
+    {% elif user_gender == "Transgender" %}
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Couple">Couple</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="transgender" selected>Transgender</option>
+
+
+    {% elif user_gender == "Couple" %}
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Couple" selected>Couple</option>
+        <option value="Non-binary">Non-binary</option>
+
+
+    {% elif user_gender == "Non-binary" %}
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Couple">Couple</option>
+        <option value="Non-binary" selected>Non-binary</option>
+
+
+    {% elif user_gender == None %}
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Couple">Couple</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="none" selected>None</option>
+    {% endif %}
+</select>
+<label for="user-gender" id="errorLabel_GenderID" class="errorLabel"></label>

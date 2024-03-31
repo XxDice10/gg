@@ -1,0 +1,107 @@
+{% include 'miscellaneous/test_navbar.html' %}
+
+<div class="secondry_dropdown">
+
+    <a href="{% url 'index1' %}">Home</a>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-tags"></i> Categories
+        </button>
+        <ul class="dropdown-menu other-menu">
+            <div class="menu_large">
+                <div class="list">
+                    <a href="#">Amateur</a>
+                    <a href="#">Anal</a>
+                    <a href="#">Arab</a>
+                    <a href="#">Asian</a>
+                    <a href="#">ASMR</a>
+                    <a href="#">BBW</a>
+                    <a href="#">BDSM <i class="fa-solid fa-star"></i></a>
+                    <a href="#">Bi</a>
+                    <a href="#">Big Ass</a>
+                    <a href="#">Big Cock</a>
+                </div>
+                <div class="list">
+                    <a href="#">Big Tits</a>
+                    <a href="#">Black</a>
+                    <a href="#">Blonde</a>
+                    <a href="#">Breath Play <i class="fa-solid fa-star"></i></a>
+                    <a href="#">Blowjob</a>
+                    <a href="#">Brunette</a>
+                    <a href="#">Cam Porn</a>
+                    <a href="#">Cheating</a>
+                    <a href="#">Compilation</a>
+                    <a href="#">Creampie</a>
+                    <a href="#">Cuckold</a>
+                </div>
+
+                <div class="list">
+                    <a href="#">Deepthroat</a>
+                    <a href="#">Domination <i class="fa-solid fa-star"></i></a>
+                    <a href="#">Femboy</a>
+                    <a href="#">Femdom</a>
+                    <a href="#">Fisting</a>
+                    <a href="#">Gangbang</a>
+                    <a href="#">Gay</a>
+                    <a href="#">Hardcore</a>
+                    <a href="#">Indian</a>
+                    <a href="#">Interrical</a>
+                    <a href="#">Latina</a>
+                </div>
+
+                <div class="list">
+                    <a href="#">Lesbian</a>
+                    <a href="#">Mature</a>
+                    <a href="#">Milf</a>
+                    <a href="#">Movie</a>
+                    <a href="#">Petite</a>
+                    <a href="#">POV</a>
+                    <a href="#">Redhead</a>
+                    <a href="#">Rough <i class="fa-solid fa-star"></i></a>
+                    <a href="#">Teen <i class="fa-solid fa-star"></i></a>
+                    <a href="#">Shemale Porn</a>
+                    <a href="#">Slapping <i class="fa-solid fa-star"></i></a>
+                </div>
+            </div>
+
+        </ul>
+      </div>
+
+
+    <a href="{% url 'search' value='ev' %}"><i class="fa-solid fa-star" id="ev_heart"></i> Exclusive Videos</a>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{orientation.title}} <i class="{{oi}}"></i>
+        </button>
+            {% if orientation == 'straight' %}
+            <ul class="dropdown-menu">
+                <li style="background-color: #333;"><a class="dropdown-item" >Straight <i class="fa-solid fa-venus"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('gay')" href="{% url 'gay' %}">Gay <i class="fa-solid fa-venus-double"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('trans')" href="{% url 'trans' %}">Trans <i class="fa-solid fa-transgender"></i></a></li>
+            </ul>
+            {% elif orientation == 'gay' %}
+            <ul class="dropdown-menu">
+                <li style="background-color: #333;"><a class="dropdown-item" >Gay <i class="fa-solid fa-venus-double"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('straight')" href="{% url 'index1' %}">Straight <i class="fa-solid fa-venus"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('trans')" href="{% url 'trans' %}">Trans <i class="fa-solid fa-transgender"></i></a></li>
+            </ul>
+            {% else %}
+            <ul class="dropdown-menu">
+                <li style="background-color: #333;"><a class="dropdown-item" >Trans <i class="fa-solid fa-transgender"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('gay')" href="{% url 'gay' %}">Gay <i class="fa-solid fa-venus-double"></i></a></li>
+                <li><a class="dropdown-item" onclick="change_orientation('straight')" href="{% url 'index1' %}">Straight <i class="fa-solid fa-venus"></i></a></li>
+            </ul>
+            {% endif %}
+                
+      </div>
+
+
+      <a href="#" id="ppth">PREMIUM</a>
+</div>
+
+<div class="overlynav" id="overlyID">
+
+</div>
+

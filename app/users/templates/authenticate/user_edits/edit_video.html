@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Editing video - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="userUploads">
+
+    {% include 'miscellaneous/alert_messages.html' %}
+
+<div class="banner_section" >
+    <div class="main_section">
+        <h1>{{site_name}}</h1>
+
+        <div class="user_holding">
+            <img src="/static/images/standard_pp.png" alt="user image">
+            <h3>{{user.username}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid rgb(180, 50, 50);">Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid #212121;" >Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid #212121;">Likes</a>
+    </div>
+    <div class="right">
+        <a href="#">Edit Profile</a>
+        <a href="#"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+<div class="user_intro">
+    <h3>Edit Your Upload</h3>
+    <hr>
+
+    <div class="edit_area">
+        <form action="{% url 'new_edited_video' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="video_id" value="{{video_id}}">
+
+            <div class="thumbnail_upload">
+                <img src="{{video_thumbnail}}" alt="">
+
+                <div class="image_upload_info">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <small>{{thumbnail_warning}}</small>
+                </div>
+            </div>
+
+            <label for="video_title">Video Title</label>
+            <input type="text" id="video_title" name="video_title" value="{{video_title}}" placeholder="Video Title">
+
+            <label for="video_caption">Video Caption</label>
+            <textarea name="video_caption" id="video_caption" cols="30" rows="10" placeholder="Video Caption">{{video_caption}}</textarea>
+
+            <label for="video_tags">Video Tags</label>
+            <textarea name="video_tags" id="video_tags" cols="30" rows="7" placeholder="Video Tags">{{video_tags}}</textarea>
+
+            <button type="submit">Save</button>
+            <button type="button">Delete Video</button>
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

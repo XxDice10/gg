@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>Privacy Policy - {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="pp">
+
+<div class="pppage">
+    <h1>Our Privacy Policy</h1>
+    <small>Last Modified: {{updated}}</small>
+    <h2>Read below to understand more about what and how we use your data.</h2>
+    <hr>
+    <h3>Scope</h3>
+    <p>  
+        The purpose of this Privacy Policy is to transparently communicate our procedures regarding user data. We employ various 
+        methods to utilize your data for different purposes, subjecting it to various processing operations. Within this document, 
+        we comprehensively outline the types of data we gather and the processes involved in handling our users' information.
+    </p>
+    <p>
+        Moving forward, we'll adopt the definitions outlined in Washington State Senate Bill 5376 for 
+        terms such as <b>"Personal data"</b>, <b>"Process"</b>, <b>"Sensitive data"</b>, <b>"Profiling"</b>, 
+        <b>"Consent"</b>, <b>"Affiliate"</b>.
+    </p>
+    <p>
+
+    </p>
+    <h3>Your Privacy</h3>
+    <p>
+        Safeguarding user privacy is our top priority, and we strictly adhere to legal requirements. As a user, you possess certain rights 
+        under the law, and we wholeheartedly support and uphold these rights.
+    </p>
+    <h3>Use of cookies</h3>
+    <p>
+        We use cookies to enhance your browsing experience, personalize content and ads, provide social media features, and analyze our 
+        traffic. By continuing to use our site, you consent to the use of cookies in accordance with our Cookie Policy. You can manage 
+        your cookie preferences in your browser settings.
+    </p>
+    <p>
+        As you navigate through and interact with {{site_name}}, we use automatic data collection technologies to collect your activity 
+        on our website. The technologies we use for this automatic data collection may include cookies, which are small text files that 
+        are stored in your browser or downloaded to your device when you visit {{site_name}}.
+
+        What cookies do we use on {{site_name}}.
+    </p>
+    <ul>
+        <li><i><span>Necessary cookies: </span></i>These cookies are required for our website. These nescessary cookies include, color theme, user login information (username, not password), or if a user has access to a certain service or has requested a certain language.</li>
+        <li><i><span>Targeting and Advertising Cookies: </span></i>These cookies help {{site_name}} keep a record of a users interests so that we can serve content and ads based on that users interests</li>
+        <li><i><span>Persistent Cookies:</span></i> unlike session cookies, are designed to stay on your device until they expire or are manually deleted. The expiration dates of these cookies are determined by the cookies themselves, with some expiring within minutes and others lasting for days.</li>
+    </ul>
+    <p>Cookies play a crucial role in gathering valuable data for the benefit of our users. However, if you prefer, you have the option to disable these cookies in the site settings.</p>
+    <p>We do not use session cookies.</p>
+    <p><b>Do Not Track:</b> Our website does not recognize browser “Do Not Track” signals.</p>
+    <p><b>Use of {{trackingSystem}}: </b>
+        {{trackingSystem}} as a software service provider that we use to collect and analyze information about how users use {{site_name}}.com; 
+        {{trackingSystem}} assists us by gathering website activity data through its systems. By employing IP tracking 
+        and monitoring page activity, {{trackingSystem}} provides insights into the origins of our users and their duration on specific 
+        pages. Additionally, it offers information on users' operating systems and general locations. This data is 
+        invaluable for understanding our user demographics and tailoring marketing campaigns to engage those with 
+        heightened interest in our content.
+    </p>
+    <h3>Retention of Personal Information</h3>
+    <p>
+        We will keep your personal information only for the duration of your active account or as required to fulfill 
+        the original purposes for which it was processed, which may include meeting legal, accounting, or reporting obligations.
+    </p>
+    <h3>How We Gather Information About You</h3>
+    <p>
+        We acquire data directly from our users through various means, including:
+    </p>
+    <ol>
+        <li><i>Account registration</i></li>
+        <li><i>Contacting us through any form</i></li>
+        <li><i>User search queries</i></li>
+        <li><i>Analysis of user browsing behavior, such as duration of site visits and pages visited</i></li>
+        <li><i>Additional data provided by {{trackingSystem}} and other sources</i></li>
+    </ol>
+    <p>This data, as elaborated in the section on cookies, serves both marketing campaigns and enhancing user experience by 
+        facilitating relevant content discovery.</p>
+
+    <h3>Biometric Information:</h3>
+    <p>
+        We do not track Biometric Information or any other use of <i>Sensitive data</i> as of now.
+    </p>
+    <h3>Updates to Our Privacy Policy</h3>
+    <p>
+        Our Privacy Policy may undergo alterations or updates periodically. We make efforts to inform you of any 
+        significant changes as mandated by law. We encourage you to regularly review the latest version of our 
+        Privacy Policy, which will be accessible at this location. This ensures you stay informed about any 
+        modifications; the date of alteration will be indicated in the "last modified date" section.
+    </p>
+    <h3>International Transfer of Your Personal Data</h3>
+    <p>
+        By using {{site_name}}, you are giving your <i>consent</i> to the international transfer of the information we <i>collect</i> about you, 
+        which includes <i>personal data</i>, to countries where we have <i>affiliates</i> or may establish <i>affiliations</i>. 
+        When we transfer <i>personal data</i> to countries outside of the USA or other regions with comprehensive data protection laws, 
+        we will ensure that such transfers comply with applicable regulations.
+    </p>
+    <h3>Your Rights Related to Your Personal Information</h3>
+    <p>
+        Subject to local laws and applicable legal requriments and exemptions, you have certain rights regarding your personal data:
+    </p>
+
+    <ul>
+        <li><b>Right of access:</b> You are entitled to learn about the personal data we hold about you, its usage, and obtain a copy of it.</li>
+        <li><b>Right to rectification:</b> You have the authority to correct any inaccuracies in your personal data.</li>
+        <li><b>Right to be forgotten:</b> You possess the right to request the deletion or erasure of your personal data.</li>
+        <li><b>Right to object:</b> You reserve the right to object to the utilization of your personal data, particularly when it is based on our legitimate interests or public interests.</li>
+    </ul>
+
+    <p>
+        If you've consented to the processing of your personal data, you retain the right to revoke your consent at any time. However, 
+        please be aware that this action may limit your access to certain features or functionalities on {{site_name}}.
+    </p>
+
+    <p>
+        You can manage your access or deletion requests for your data through the user settings. Should you require further assistance, 
+        feel free to reach out to us. We commit to responding to your requests within one month, although in cases of technical 
+        complexity, this period may extend to 60 days, with notification of any such extension.
+    </p>
+
+    <p>
+        To ensure the security and confidentiality of your personal data, we will verify your identity before processing any access or 
+        deletion requests. This precautionary measure aims to prevent unauthorized access or deletion of your information.
+    </p>
+
+    <p>
+        Please note that without an existing account, we may face challenges in identifying you, hindering our ability to respond to your requests promptly. Moreover, for certain verification purposes, we may request additional information from you to ensure proper authentication.
+
+        By prioritizing the protection of your personal data rights, we aim to foster transparency and trust in our relationship with you.
+    </p>
+
+    <div class="bottom">
+        <h3>You can request your data below</h3>
+        <p>Please note only Registered Users may request a copy of their personal data or delete request.</p>
+        <div class="buttons">
+            <a href="{% url 'request_data' %}" target="_blank"><button>Request my Personal Data</button></a>
+            <a href="{% url 'request_data' %}" target="_blank"><button>Delete my Personal Data</button></a>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>{{user.username}}'s Likes - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="user-likes1">
+<input type="hidden" name="username-" id="username-" value="{{user.username}}">
+
+<div class="banner_section" >
+    <div class="main_section">
+        <h1>{{site_name}}</h1>
+
+        <div class="user_holding">
+            <img src="/static/images/standard_pp.png" alt="user image">
+            <h3>{{user.username}}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid #212121;">Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid #212121;">Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid rgb(180, 50, 50);">Likes</a>
+        <a href="{% url 'submission' %}" style="border-bottom: 2px solid #212121;">Upload</a>
+    </div>
+    <div class="right">
+        <a href="{% url 'user_edit_profile_page' %}">Edit Profile</a>
+        <a id="share_user_button" onclick="open_share_tab()"><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+<div class="user_intro">
+    <h3>Your Likes</h3>
+    <hr>
+
+    {% if posts %}
+    <div class="newvideos">
+
+        <div class="video_selection">
+    
+            {% for post in posts %} 
+                <div class="video_sel">
+                    <h3 class="post-title">{{ post.title }}</h3>
+    
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'picture' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" style="cursor: pointer;">
+                        {% elif post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="">
+                        {% elif post.mediaType == 'video-l' %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}">
+                        {% endif %}
+    
+                        {% if post.mediaType == 'picture' %}
+                        <div class=""></div>
+                        {% else %}
+                        <div class="player1">
+                            <a href="{% url 'video' play_id=post.play_id %}"><i class="fa-regular fa-circle-play"></i></a>
+                        </div>
+                        {% endif %}
+                    </div>
+    
+                    <h5 class="submission_alert">Submitted by <span><a href="#">{{post.submitted_by}}</a></span></h5>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    {% else %}
+        <div class="no_likes">
+            <i class="fa-solid fa-heart"></i>
+            <h3>You don't have any likes</h3>
+        </div>
+        
+    {% endif %}
+</div>
+
+<script src="{% static 'js/javascript-cdn-user-share.js' %}"></script>
+
+{% endblock content %}

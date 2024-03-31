@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>DMCA Takedown Form | {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="dmcaTake">
+
+<div class="pppage-dmca-takedown">
+    <h1>DMCA Takedown Form.</h1>
+    <h2>If you found an exclusive video of yours on our site, take the steps below to remove said content.</h2>
+    <small>All takedowns need to be {{site_name}} exclusives</small>
+    <hr>
+
+    <a href=""><button id="child-abuse-button" type="button">Child Abuse Report</button></a>
+
+    <form action="{% url 'dmca_takedown_submission' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="urls-inputs">
+            <label for="first_url">Location (URL) of the allegedly infringing work or material * </label>
+            <input type="text" name="first_url" id="first_url" placeholder="URL of video:" required>
+    
+            <label for="dd-work">Description of the work claimed to be infringed:</label>
+            <select name="dd-work" id="dd-work" required>
+                <option value="My or my company's, organization's or client's video">My or my company's, organization's or client's video</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    
+        <h4>PLEASE PROVIDE THE FOLLOWING CONTACT INFORMATION:</h4>
+    
+        <div class="contact-info">
+            <div class="onetime">
+                <label for="first-name-dmca" class="lba-dmca">First Name:</label> <input type="text" name="first-name-dmca" id="first-name-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="last-name-dmca" class="lba-dmca">Last Name:</label> <input type="text" name="last-name-dmca" id="last-name-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="address-dmca" class="lba-dmca">Address:</label> <input type="text" name="address-dmca" id="address-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="copyrightholder-dmca" class="lba-dmca">Copyright Holder:</label> <input type="text" name="copyrightholder-dmca" id="copyrightholder-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="city-dmca" class="lba-dmca">City:</label> <input type="text" name="city-dmca" id="city-dmca" required>
+            </div>
+    
+    
+            <div class="onetime">
+                <label for="State-dmca" class="lba-dmca">State:</label> <input type="text" name="State-dmca" id="State-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="Country-dmca" class="lba-dmca">Country:</label> <input type="text" name="Country-dmca" id="Country-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="Zip-dmca" class="lba-dmca">Zip:</label> <input type="text" name="Zip-dmca" id="Zip-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="Phone-dmca" class="lba-dmca">Phone:</label> <input type="text" name="Phone-dmca" id="Phone-dmca" required>
+            </div>
+    
+            <div class="onetime">
+                <label for="Email-dmca" class="lba-dmca">Email:</label> <input type="text" name="Email-dmca" id="Email-dmca" required>
+            </div>
+    
+        </div>
+
+        <h4>PLEASE PROVIDE THE FOLLOWING CONTACT INFORMATION:</h4>
+
+        <div class="checkboxes">
+            <input type="checkbox" id="legal1" name="legal1" value="Bike" required>
+            <label for="legal1" class="legal-checkbox"> UNDER PENALTY OF PERJURY, you are the rightful owner or an agent authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</label><br>
+            
+            <input type="checkbox" id="legal2" name="legal2" value="Car" required>
+            <label for="legal2" class="legal-checkbox"> You have a good faith belief that the use of the content in the manner complained of, is not authorized by the copyright owner, its agent, or the law.</label><br>
+            
+            <input type="checkbox" id="legal3" name="legal3" value="Boat" required>
+            <label for="legal3" class="legal-checkbox"> You acknowledge that you may be subject to liability if you knowingly make a material misrepresentation that activity is infringing. Fair use should also be taken into consideration.</label><br>
+            
+            <input type="checkbox" id="legal4" name="legal4" value="Bike" required>
+            <label for="legal4" class="legal-checkbox"> The information in this notification is accurate.</label><br>
+            
+            <input type="checkbox" id="legal5" name="legal5" value="Bike" required>
+            <label for="legal5" class="legal-checkbox"> Your acknowledge the abuse of this tool may result in termination of your account.</label><br>
+        </div>
+
+
+        <h4>PLEASE NOTE:</h4>
+        <p>The name of the copyright holder must be displayed on {{site_name}} instead of the disabled content. 
+            This will be documented as part of your request, along with your description of the work(s) believed 
+            to be infringed upon. All details provided in this DMCA Takedown Form, including personal information, 
+            will constitute the complete takedown notice and could be shared with the uploader of the allegedly 
+            infringing content. By submitting this form, you consent to the disclosure of your information in 
+            this manner.</p>
+
+            <div class="final-input">
+                <label for="final-input">Type your full name here to provide your electronic signature:</label>
+                <input type="text" name="final-input" id="final-input" required>
+            </div>
+
+
+            <button type="submit">Send</button>
+
+    </form>
+
+    <small>
+        Kindly note that if the video(s) in question are standard embedded content, your request will be declined, and you will 
+        need to address it directly with the original hosting site. This takedown form is exclusively for <span>{{site_name}} exclusives</span>.
+    </small>
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

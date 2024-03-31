@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="rating" content="adult">
+    <meta name="RATING" content="RTA-5042-1996-1400-1577-RTA" />
+{% endblock meta %}
+{% load static %}
+
+{% block styles %} 
+<link rel="stylesheet" href="{% static 'css/search_page.css' %}">
+{% endblock styles %}
+
+
+{% block title %} 
+    {% if search_value == 'ev' %}
+        <title>{{site_name}} Exclusive Videos Porn - {{site_name}}.com</title>
+    {% else %}
+        <title>Search '{{search_value}}' Porn Videos - {{site_name}}.com</title>
+    {% endif %}
+{% endblock title %}
+
+
+
+{% block content %}
+
+
+<input type="hidden" name="2257" id="page-on" value="searchID">
+
+<div class="newvideos-searchpage">
+    {% if search_value == 'ev' %}
+        <h1>View all our Exclusive Videos!</h1>
+    {% else %}
+        <h1>Search Results for "{{search_value}}"</h1>
+    {% endif %}
+  <h3>Results ({{number_of_results}})</h3>
+  <hr>
+  <div class="video_selection">
+
+      {% for video in videos_page %} 
+          <div class="video_sel">
+              <a href="{% url 'video' play_id=video.play_id %}">
+                  <div class="thumbnail_container">
+                      {% if video.mediaType == 'video-w' %}
+                          <img src="{{ video.thumbnail }}" class="wide_img" alt="{{ video.title }}" srcset="">
+                      {% else %}
+                          <img src="{{ video.thumbnail }}" class="long_img" alt="{{ video.title }}">
+                      {% endif %}
+  
+                      <div class="player1">
+                          <small>{{video.duration}}</small>
+                      </div>
+                  </div>
+              </a>
+      
+
+              <div class="bottom-stuff">
+                  <div class="toplayer">
+                      <div class="username-star">
+                          <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=video.submitted_by %}">{{video.submitted_by}}</a></span></h5>
+                          
+                      </div>
+                      <div class="views-">
+                          <i class="fa-regular fa-eye"></i>
+                          <small>{{video.total_views}}</small>
+                      </div>
+                  </div>
+
+                  <h3 class="post-title">{{ video.title }}</h3>
+              </div>
+          </div>
+      {% endfor %}
+      
+  </div>
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  <span class="step-links">
+      {% if videos_page.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ videos_page.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ videos_page.number }} of {{ videos_page.paginator.num_pages }}.
+      </span>
+
+      {% if videos_page.has_next %}
+          <a href="?page={{ videos_page.next_page_number }}">next</a>
+          <a href="?page={{ videos_page.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
+
+
+<script src="{% static 'js/javascript-cdn-posts.js' %}"></script>
+
+{% endblock content %}

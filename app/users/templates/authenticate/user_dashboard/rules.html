@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Uploader Rules - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+<input type="hidden" name="2257" id="page-on" value="user_profile">
+<input type="hidden" name="username-" id="username-" value="{{user.username}}">
+
+<div class="user_stuff">
+    <div class="left">
+        <a href="{% url 'dashboard' %}" style="border-bottom: 2px solid #212121;">Home</a>
+        <a href="{% url 'videos_uploaded' %}" style="border-bottom: 2px solid #212121;">Videos</a>
+        <a href="{% url 'pictures_uploaded' %}" style="border-bottom: 2px solid #212121;">Pictures</a>
+        <a href="{% url 'likes' %}" style="border-bottom: 2px solid #212121;">Likes</a>
+        <a href="{% url 'submission' %}" style="border-bottom: 2px solid #212121;">Upload</a>
+    </div>
+    <div class="right">
+        <a href="{% url 'user_edit_profile_page' %}">Edit Profile</a>
+        <a id="share_user_button" onclick="open_share_tab()" ><i class="fa-solid fa-share-nodes"></i> Share</a>
+    </div>
+</div>
+
+
+
+<div class="pppage">
+    <h3>Uploading Rules & Guidelines:</h3>
+    <br>
+    <p>Uploading content to {{ site_name }}.com you agree to these rules and guidelines while also agreeing fully 
+        with our <a href="{% url 'termsOfUse' %}">Terms of Service</a>. And our <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.</p>
+    
+        <p>
+            By uploading to {{ site_name }}.com you agree with the following:
+        </p>
+        <p><b>Rules:</b></p>
+        <ul>
+            <li>You will not upload content that is not yours or you do not have the rights or permissions to upload.</li>
+            <li>The content herein does not content any child abuse content.</li>
+            <li>The content herein does not violate any local laws.</li>
+            <li>The content herein does not include any mentions of children or child.</li>
+            <li>The content herein does not contain sweepstakes, contests, or lotteries, or otherwise related to gambling.</li>
+            <li>The content herein does not contain non-consensual or illegal in any form, including but not limited to fraudulent, defamatory, libelous, harassing, or otherwise unlawful material.</li>
+            <li>The content herein does not include gore or any obscene content.</li>
+            <li>You fully understand that processing your video may take up to 24 hours.</li>
+            <li>You fully agree to accept these rules and our <a href="{% url 'termsOfUse' %}">Terms of Service</a> and any future changes to this document and others like it.</li>
+            <li>You fully agree to accept <b>Prohibited Uses</b> section of our <a href="{% url 'termsOfUse' %}">Terms of Service</a> agreement, along with Sub-Licensing.</li>
+
+        </ul>
+        <hr>
+        <p><b>Guidelines:</b></p>
+        <ul>
+            <li>Your uploaded content should be less than or equal to 40 mb. If it is a video form content.</li>
+            <li>For the best processing time your content should be in the .WebM video format.</li>
+            <li>If you content has elements of forced sex or kiddnapping, the video herein must have reasonable and deliberate acts or gestures insinuating full consent of the act therein.</li>
+            <li>BDSM and S&M content is fully allowed to be uploaded, however if your content has cutting or blood in it, we must take a longer processing time to ensure it does not fall under gore content.</li>
+            <li>Gore content is <b>NOT ALLOWED</b>!</li>
+        </ul>
+</div>
+
+
+
+<script src="{% static 'js/javascript-cdn-user-share.js' %}"></script>
+{% endblock content %}

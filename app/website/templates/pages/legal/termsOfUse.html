@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="description" content="Terms of Use of {{site_name}}.com">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>Terms of Use - {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+
+<input type="hidden" name="2257" id="page-on" value="terms">
+
+<div class="pppage">
+    <h1>Our Terms of Use</h1>
+    <small>Last Modified: {{updated}}</small>
+    <h2>Read below to understand more about our terms of use.</h2>
+    <hr>
+
+    <h3 id="section1">Acceptance of the Terms of Use:</h3>
+    <p>
+        When utilizing, accessing, visiting, or signing up for membership on www.{{site_name}}.com, 
+        also known as ("<b>we</b>," "<b>our</b>," "<b>us</b>," or this "<b>Website</b>"), along with 
+        any of its content, features, and/or services, you are consenting to abide by all of the 
+        Terms of Use, including policies and relevant guidelines, such as the Child Sexual Abuse 
+        Material Policy and Non-Consensual Content Policy. These collectively constitute the 
+        "<b>Terms of Use</b>," and our <a href="{% url 'privacy_policy' %}">Privacy Policy</a> is additionally referenced herein.
+    </p>
+
+    <p>
+        These Terms of Use are applicable to all individuals utilizing this Website, whether 
+        you are a content partner, uploader submitting content, or any other user accessing it 
+        through various devices such as computers, laptops, mobile devices, or any other means. 
+        The term "Content" encompasses a wide range of materials including text, software, graphics, 
+        photos, sounds, music, videos, or any other material that you may view, upload, submit, publish, 
+        communicate, or post on this Website.
+    </p>
+
+    <p>"<b>Uploaders</b>" means Users of this Website who upload content and or submit content to this Website.</p>
+
+    <p>If you do not agree with any of these Terms of Use or our <a href="{% url 'privacy_policy' %}">Privacy Policy</a>, please do not access or use this Website.</p>
+
+    <h3 id="section2">The Ability to Accept these Terms of Use.</h3>
+    <p>
+        By proceeding to use this website, you confirm that you meet the age requirements stipulated in your jurisdiction, 
+        being at least 18 years of age or 21 years of age, and that you possess the legal capacity to consent to and comply 
+        with the terms, conditions, obligations, affirmations, and any other provisions outlined in these Terms of Use. 
+        It is imperative that you are fully capable of understanding and adhering to these terms. Should you be under 
+        the age of 18, we kindly request that you refrain from accessing this website.
+    </p>
+
+    <p>Furthermore, you declare that the laws of your jurisdiction do not forbid the reception or viewing of sexually 
+        explicit content. Whether you are a registered user or not, we may request that you furnish us and/or our 
+        third-party age verification service providers with necessary information to confirm your eligibility to 
+        access this website and its contents. For further details on how this information is handled, we encourage 
+        you to review our <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.
+    </p>
+
+    <p>
+        Failure to provide the requisite information, when requested, to ascertain your eligibility to access this 
+        website and its contents, may result in the suspension or termination of your access rights, either in part 
+        or in whole, to this website.
+    </p>
+
+    <h3 id="section3">Changes to the Terms of Use</h3>
+    <p>
+        We retain the discretion to modify these Terms of Use without prior notice. It is your responsibility to 
+        regularly review these terms for any updates. Your continued use of this website after any modifications 
+        indicates your acknowledgment and acceptance of the revised terms.
+    </p>
+
+    <hr>
+    <h3 id="section4">About This Website</h3>
+    <p>
+        This platform offers access to explicit adult content for both registered and unregistered users. 
+        Additionally, it allows content partners and uploaders to share adult-oriented material.
+    </p>
+
+    <p>
+        Please note that this website may include links to third-party sites not under our ownership or control. 
+        We do not oversee the content, privacy policies, or practices of these external sites, nor do we have the 
+        ability to censor or modify their content. By using this website, you absolve us of any liability associated 
+        with your use of third-party sites. We advise you to exercise caution when navigating away from our site and 
+        to review the terms, conditions, and privacy policies of any other sites you visit.
+    </p>
+
+    <p>
+        This website is intended for personal use only and should not be utilized for commercial purposes unless explicitly authorized by us.
+    </p>
+
+    <p>
+        By accessing or using this Website you fully accept that you may encounter content that is sourced from various origins and recognize 
+        that this Website does <b>NOT</b> gurarantee the accuracy, utility, safety or intellectual property rights of such content. You also 
+        fully accept and acknowlegde the possibility of encountering in inaccuracies, offensive material, indecencies, or objectionable and 
+        consensual abusive content, and you agree to waive any and all legal claims or remedies against this Website in relation to such 
+        encounters. Additionally, you indemnify and hold harmless this Website, its operator, parent corporation, affiliates, licensors, 
+        service providers, officers, directors, employees, agents, successors, and assigns to the fullest extent permitted by law regarding 
+        your use of this Website.
+    </p>
+
+    <h3 id="section5">Rules Applicable to All Content and Uploaders on this Website</h3>
+    <p>
+        By uploading any content to this website, you automatically become a registered user and thereby agree to abide by our Terms of 
+        Use and <a href="{% url 'privacy_policy' %}">Privacy Policy</a>. Providing false or inaccurate information during the account creation process may result in 
+        immediate termination of your account, suspension of pending payments, and at our discretion, withholding of owed amounts 
+        indefinitely, potentially leading to legal consequences.
+    </p>
+    <p>You represent and warrant and with respect to all Content uploaded by You to this Website:</p>
+
+    <ol>
+        <li>
+            The content you upload must comply with all relevant laws and should not expose this website to any claims, demands, lawsuits, regulatory 
+            actions, or any actual or potential liabilities, or threats thereof.
+        </li>
+
+        <li>
+            By uploading content, you affirm that you hold the rights to utilize it on this website. Furthermore, you assert that the content is 
+            free from any infringement on third-party rights, including intellectual property rights. You confirm that you have obtained consent 
+            from every individual depicted in the content, ensuring they are at least 18 years old and have willingly agreed to be filmed in any medium.
+        </li>
+
+        <li>
+            The uploaded content has undergone thorough scrutiny, accompanied by valid government-issued photo identification confirming that 
+            individuals depicted therein are a minimum of 18 years old at the time of being photographed, filmed, or otherwise featured in 
+            said content. This requirement applies universally, regardless of identifiability or clothing status.
+        </li>
+
+        <li>The Content you upload complies with this Website's Terms of Use and our Privacy Policy.</li>
+
+        <li>
+            The Content you upload affirms that no persons or individual appearing in the Content you upload have been convicted of crimes 4
+            relating to sexual assault, sexual exploitation of a minor, trafficking and any and all other related criminal offences.
+        </li>
+
+        <li>
+            The Content you upload affirms that any persons or any individual in the content you upload is in agreement to film such content and further 
+            consents to have said Content uploaded to this Website.
+        </li>
+    </ol>
+
+    <p>
+        Failure to adhere to these Terms of Use or any associated contracts you enter into with us may result in the termination of your account. 
+        Should we find that you have violated any of these terms, appropriate actions will be taken, including the possibility of banning your IP 
+        address where deemed necessary.
+    </p>
+
+
+    <h3 id="section6">Communication Preferences.</h3>
+    <p>
+        By utilizing, accessing, or enrolling as a User on this Website, you explicitly and precisely agree to receive electronic 
+        communications from us regarding your account. These communications may encompass sending emails to the address you 
+        provided during registration or posting messages on this Website (such as within the members’ area upon login to
+         ensure receipt even if you've opted out of email communications), or on the "My Account" or "My Profile" page. 
+         They may include notifications regarding your account status (like password changes or confirmation emails) and 
+         constitute a fundamental aspect of our relationship with you. You acknowledge that any notifications, agreements, 
+         disclosures, or other communications we transmit to you electronically will fulfill all legal communication obligations, 
+         including the requirement for written communication. It is advisable to retain copies of electronic communications by 
+         either printing a hard copy or saving an electronic one.
+    </p>
+
+    <h3 id="section7">Use of Website</h3>
+
+    <p>
+        By accessing this Website and utilizing its services, you acknowledge and agree to employ them solely for lawful purposes 
+        explicitly sanctioned by these Terms of Service. Any utilization of this Website and its services for purposes other 
+        than those expressly permitted herein, including but not limited to commercial endeavors, is strictly prohibited without 
+        obtaining our explicit written consent.
+    </p>
+
+    <p>
+        By accessing this Website and its Content, you agree to do so without any alterations or modifications. It is acknowledged 
+        and understood by you that modifying the Website or removing any of its Content, including advertisements, is strictly 
+        prohibited. Additionally, you must not attempt to bypass, remove, delete, disable, alter, or interfere with any age and 
+        biometrics verification processes, technologies, or security tools employed on this Website or in conjunction with our 
+        services. Your use of this Website constitutes express acceptance of advertising displayed on and through it, and you 
+        agree not to utilize ad-blocking software or to disable such software prior to visiting this Website.
+    </p>
+
+    <h3 id="section8">Prohibited Uses</h3>
+
+    <p>
+        You agree not to employ any means, whether through method, device, software, or routine, to cause harm to others or disrupt 
+        the operation of this Website. Furthermore, you agree not to access or monitor any information within or associated with 
+        this Website for unauthorized purposes.
+    </p>
+
+    <p>
+        In addition to the aforementioned general constraints, specific restrictions and conditions pertain to your utilization of 
+        Content. Any violation of the following stipulations will be conclusively determined as a breach. Prior to utilizing this 
+        Website, carefully consider the list of prohibited activities outlined below. Specifically, you undertake not to engage 
+        in the following actions on this Website:
+    </p>
+    <ul>
+        <li>
+            Post any Content that depicts any persons or individual underage of any sexual activity, non-consensual sexual activity, 
+            revenge porn, blackmail, intimidation, snuff, torture, death, violent, incest, racial slurs or hate speech (either orally or via written word);
+        </li>
+        <li>
+            Post any Content that is non-consensual or illegal in any form, including but not limited to fraudulent, defamatory, libelous, harassing, 
+            or otherwise unlawful material.
+        </li>
+        <li>
+            Post any Content that breaks or violate any law or encourage or provide instructions to another to do so.
+        </li>
+        <li>
+            Post any Content containing unsolicited or unauthorized advertising, promotional materials, spam, junk mail, chain letters, 
+            pyramid schemes, or any other form of unauthorized solicitation;
+        </li>
+        <li>
+            Post any Content that impersonates another person or individual or falsely states or otherwise misrepresents your 
+            affiliation with said person or individual.
+        </li>
+        <li>
+            Post any Content that for which you have no rights too or without written consent to publish. 
+        </li>
+        <li>
+            Post any Content that does not have written documentation enough to confirm that all persons or individual 
+            in your posts are, in fact, over 18 or 21 years of age.
+        </li>
+        <li>
+            Post any Content that is gory in nature, including cutting, beheading, slicing, killings, animal abuse in any form, death, or other gore content.
+        </li>
+        <li>
+            use this Website (or post any Content that) in any way that promotes or facilitates prostitution, solicitation of prostitution, human trafficking, or sex trafficking;
+        </li>
+        <li>
+            Post any Content containing sweepstakes, contests, or lotteries, or otherwise related to gambling;
+        </li>
+        <li>
+            deploy or use programs, software or applications designed to harm, interfere with the operation of, or access in an unauthorized manner, 
+            services, networks, servers, or other infrastructure;
+        </li>
+        <li>
+            use this Website to arrange any in-person meetings for purposes of sexual activity for hire;
+        </li>
+        <li>
+            Post any Content that is under copyright or materials protected by other intellectual property laws.
+        </li>
+        <li>alter or modify without permission any part of this Website or its Content, including ads;</li>
+
+        <li>exploit errors in design, features which are not documented, and/or bugs to gain access that would otherwise not be available.</li>
+    </ul>
+
+    <p>Additionally, you agree not to:</p>
+
+    <ul>
+        <li>
+            use any robot, spider, or other automatic device, process, or means to access this Website for any purpose, including monitoring or copying any of the material on this Website without our prior written consent;
+        </li>
+        <li>use any manual process to download, monitor or copy any of the material on this Website or for any other unauthorized purpose;</li>
+        <li>use any device, bots, scripts, software, or routine that interferes with the proper working of this Website or that shortcut or alter Website functions to run or appear in ways that are not intended by this Website’s design;</li>
+        <li>attack this Website via a denial-of-service attack or a distributed denial-of-service attack;</li>
+        <li>otherwise attempt to interfere with the proper working of this Website.</li>
+    </ul>
+    <hr>
+    <h3 id="section9">Enforcement and Monitoring; Termination</h3>
+    <p>We have the full right to:</p>
+    <ol>
+        <li>
+            We reserve the right to remove or decline any post or content you submit to this website at our discretion, including but not 
+            limited to instances where the information or documentation provided by you is insufficient, incomplete, inaccurate, or prevents 
+            us from properly verifying your identity.
+        </li>
+        <li>
+            We reserve the right to take any necessary or appropriate action regarding any Content you post, based on our sole discretion. 
+            This includes instances where we determine that such Content violates our Terms of Service, infringes upon any intellectual 
+            property or other rights of any individual or entity, poses a threat to the personal safety of users of this website or the 
+            general public, or could potentially result in liability for us.
+        </li>
+    </ol>
+    <p>
+        Without prejudice to the preceding, we reserve the prerogative to engage in complete collaboration with law enforcement agencies 
+        or judicial directives mandating the revelation of the identity or any pertinent details concerning individuals who publish Content 
+        via this Website. BY USING THIS WEBSITE, YOU RELINQUISH AND INDEMNIFY US, ALONG WITH OUR OFFICERS, DIRECTORS, EMPLOYEES, SUCCESSORS, 
+        AND ASSIGNS, FROM ANY LIABILITY ARISING FROM OUR ACTIONS ARISING OUT OF THE DISCLOSURE OF PERSONAL INFORMATION IN RESPONSE TO LAW 
+        ENFORCEMENT DATA DISCLOSURE REQUESTS.
+    </p>
+    <p>
+        This website firmly opposes all forms of child exploitation and human trafficking. Should we identify any content involving minors 
+        or any instances of non-consensual, fraudulent, or coercive behavior, we will promptly remove such content and promptly report it 
+        to the appropriate law enforcement agencies. If you come across any such content, you are obligated to report it to us by <a href="#">Contacting Us.</a>
+    </p>
+    <h3 id="section10">Account Termination Policy</h3>
+    <p>
+        This website facilitates the dissemination and publication of mature adult content. However, we retain the discretion to assess the 
+        appropriateness of content and to determine whether it conforms to our Terms of Use. Content that is deemed inappropriate, including 
+        but not limited to material that is obscene, racist, hateful, abusive, or defamatory, may be removed at any time and without prior 
+        notice. Additionally, users found to be in violation of these terms by submitting such material may have their accounts terminated.
+        We reserve the right to take such actions at our sole discretion.
+    </p>
+    <p>   
+        In the event of any breach of these Terms of Use, whether in letter or in essence, or if your actions pose a potential risk or legal 
+        liability to us, we reserve the right to terminate your access to this Website or suspend provision of all or part of its services 
+        to you, at our discretion. Such actions may include, but are not limited to, the termination of your account or imposition of IP bans.
+    </p>
+
+    <h3 id="section11">Copyright and Other Intellectual Property</h3>
+    <p>
+        This website maintains a transparent <a href="{% url 'DMCA' %}">Copyright Policy</a> concerning any Content that is purported to infringe upon the copyrights of a 
+        third party. Should you have reason to believe that any Content breaches your copyright, kindly refer to our <a href="{% url 'DMCA' %}">Copyright Policy</a> for 
+        guidance on submitting a notice of copyright infringement to us. As a component of our <a href="{% url 'DMCA' %}">Copyright Policy</a>, this website reserves 
+        the right to revoke a user's access to the platform in the event that the user is identified as a repeat infringer under 
+        appropriate circumstances. In such cases, we may enforce IP bans.
+    </p>
+    <p>
+        This Website does not engage in mediating trademark disputes between Users and trademark/copyright owners. We strongly encourage 
+        trademark/copyright owners to resolve any disputes directly with the respective User or seek resolution through legal channels, 
+        such as court proceedings. Should you wish to report content on this website that you believe infringes your trademark/copyright, 
+        please contact us using the provided contact information. We are committed to conducting a limited investigation of reasonable 
+        complaints and will promptly remove content in clear cases of infringement. Please be aware that only the trademark/copyright 
+        owner or their authorized representative may file a report of trademark/copyright infringement. It is important to note that we 
+        may disclose the rights owner’s name, your email address, and the details of your report to the individual who posted the content 
+        you are reporting. This individual may reach out to you regarding the information you have provided.
+    </p>
+    <p>For more information about our <a href="{% url 'DMCA' %}">Copyright Policy</a>.</p>
+
+    <h3 id="section12">Abusive Content Reporting</h3>
+    <p>
+        Although this Website allows hardcore adult content we do <b>NOT</b> allow or permit any form of revenge porn, blackmail, 
+        intimidation, assault, sexual assault, violence, abusive language, racism or hate speech. Violations of this policy 
+        can be reported through this <a href="#" >link</a>.
+    </p>
+    <h3 id="section13">Information about You and Your Activity to this Website</h3>
+    <p>
+        All data gathered through this Website is governed by our <a href="{% url 'privacy_policy' %}">Privacy Policy</a>. Your use of this Website constitutes your 
+        acknowledgment of having reviewed and comprehended the provisions outlined in the <a href="{% url 'privacy_policy' %}">Privacy Policy</a>. By using this Website, 
+        you affirm your consent to all measures undertaken by us concerning your data in adherence to the <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.
+    </p>
+
+    <h3 id="section14">Collection and Use of Your Usage Information by Advertisers and Others</h3>
+    <p>
+        This website facilitates the display of advertisements by third parties and other websites. These third parties utilize technology to deliver 
+        advertisements directly to your browser while accessing this website. As a result, they may automatically obtain your internet protocol (IP) 
+        address. Additionally, those who advertise through this website may utilize cookies and/or web beacons to gather information, including details 
+        regarding your interaction with this website. It is important to note that we do not have control over the methodologies employed by 
+        advertisers for information collection. However, it is generally understood that IP addresses, cookies, and web beacons are incapable of 
+        individually identifying individuals; they primarily identify devices. Consequently, advertisers and other entities providing advertisements 
+        or content through this service are unlikely to ascertain your identity unless you voluntarily provide additional information to them, such 
+        as by responding to an advertisement, entering into an agreement, or through other means.
+    </p>
+
+    <h3 id="section15">Linking to this Website</h3>
+    <p>
+        You are permitted to link to this Website under the condition that you do so in a manner that is both fair and lawful and does not 
+        tarnish our reputation or exploit it for personal gain. However, you are expressly prohibited from establishing a link in a manner 
+        that implies any form of affiliation, approval, or endorsement on our part without obtaining our explicit written consent. Failure 
+        to comply with these guidelines may result in the termination of your account or the imposition of IP bans.
+    </p>
+
+    <h3>Sub-Licensing</h3>
+    <p>By uploading or submitting any Content to this Website, you agree to the following:</p>
+    <ul>
+        <li>Upon uploading your Content, you grant this Website a sub-licensing contract, allowing us to use and share your Content.</li>
+        <li>We reserve the right to utilize and share partial data from your Content, including but not limited to images, video clips, GIFs, and other relevant data, at our discretion.</li>
+        <li>This sub-license remains in effect for a period of up to (1) year following the removal of your Content or the deactivation of your account.</li>
+        <li>You acknowledge that any sub-licensing by us does not affect your ownership of the Content, and you retain all rights not expressly granted herein.</li>
+        <li>We reserve the right to modify, adapt, or create derivative works based on your Content for the purpose of enhancing the functionality or features of this Website.</li>
+        <li>You agree that this sub-licensing provision survives even if you terminate your account or cease using this Website.</li>
+        <li>You represent and warrant that you have all necessary rights, licenses, and permissions to grant the sub-licenses described herein.</li>
+        <li>You agree to indemnify and hold harmless this Website and its affiliates from any claims, damages, or losses arising out of or related to our use of your Content under this sub-license.</li>
+    </ul>
+    <p>By accepting these terms, you acknowledge that you have read, understood, and agree to be bound by all provisions outlined in this Sub-Licensing section.</p>
+    
+
+    <h3>Indemnification</h3>
+    <p>By using this Website you fully agree and accept the following:</p>
+    <ol>
+        <li>If you use the Website, you agree to protect the Website and its owners from any trouble that might come up because of your actions.</li>
+        <li>This includes things like if you break any rules of the Website, violate someone else's rights, or if something you post causes problems for someone else.</li>
+        <li>Even after you stop using the Website, you're still responsible for any issues that might come up because of your past actions on the site.</li>
+        <li>The Website gets to decide how to handle any legal issues that come up because of your actions, like picking the lawyer and deciding whether to settle any disputes.</li>
+        <li>You agree we hold and reservce the sole right and obligation to control the legal defense against any claims, demands, or litigation. This includes the right to select legal counsel and to negotiate settlements.</li>
+    </ol>
+
+    <h3 id="section16">Disclaimers</h3>
+    <p>
+        YOU USE THIS WEBSITE AT YOUR OWN SOLE RISK, WE PROVIDE THE WEBSITE "<b>AS IS</b>" and "<b>AS AVAILABLE</b>. TO THE FULLEST EXTENT PERMITTED BY LAW, THIS WEBSITE,
+    </p>
+    <h3>Limitation of Liability</h3>
+    <p>
+        Under no circumstances shall the website, its officers, directors, or employees be held liable to you for any direct, indirect, 
+        incidental, special, punitive, or consequential damages arising from: (i) errors, inaccuracies, or omissions in the content; (ii) 
+        personal injury or property damage resulting from your access to and use of our website or services; (iii) unauthorized access 
+        to or use of our secure servers and/or any personal or financial information stored therein; (iv) interruption or cessation of 
+        transmission to or from our website; (v) any bugs, viruses, Trojan horses, or similar harmful elements transmitted through our 
+        website or services by any third party; (vi) errors or omissions in any content or loss or damage incurred due to your use of 
+        transmitted content; and/or (vii) interactions with third-party advertisements or service providers found on or through this 
+        website, including transactions for related goods or services, and any associated terms, conditions, policies, warranties, or 
+        representations. These liabilities apply regardless of whether they arise from warranty, contract, tort, or any other legal 
+        theory, and regardless of whether the website or its operators are aware of the possibility of such damages. This limitation 
+        of liability is enforceable to the fullest extent permitted by law in the applicable jurisdiction.
+    </p>
+    <p>
+        YOU SPECIFICALLY ACKNOWLEDGE THAT THIS WEBSITE OFFICERS, DIRECTORS, EMPLOYEES, SHALL NOT BE LIABLE FOR CONTENT OR FOR THE DEFAMATORY, 
+        OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY, AND THAT THE RISK OF HARM OR DAMAGE FROM THE FOREGOING RESTS ENTIRELY WITH YOU.
+    </p>
+    <p>
+        YOU FURTHER ACKNOWLEGE THAT ANY CONTENT UPLOADED TO THIS WEBSITE MAY BE VIEWED, DOWNLOADED, SHARED, AND DISTRIBUTED, POTENTIALLY IN 
+        VIOLATION OF YOUR RIGHTS OR THIS TERMS OF SERVICE – AND THAT YOU SOLELY ASSUME SUCH RISKS AS A MATERIAL PART OF THESE TERMS OF SERVICE.
+    </p>
+    <p>
+        YOU AGREE NOT TO FILE ANY ARBITRATION CLAIM, LAWSUIT OR PROCEEDING INCONSISTENT WITH THE FOREGOING LIABILITY LIMITATIONS.
+    </p>
+    <p>Any claim by you that may arise in connection with these Terms of Service may be compensable by monetary damages up to, if any, 
+        a maximum of your paid subscription fee in the last twelve months, and you will in no event be entitled to injunctive or other equitable relief.
+    </p>
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

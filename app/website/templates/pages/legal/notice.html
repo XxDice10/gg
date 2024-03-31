@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>IMPORTANT NOTICE - {{site_name}}.com</title>
+{% endblock title %}
+
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="notice">
+
+<div class="pppage">
+    <h1>Notice of Adult Content</h1>
+    <small>Last Modified: {{updated}}</small>
+    <h2>Please Read Below.</h2>
+    <hr>
+    <h3>Introduction:</h3>
+    <p>The purpose of this introduction is to apply definitions as well as a preview of the upcoming terms of this notice.</p>
+    <p>For a more in depth policy about this website, please visit our <a href="{% url 'termsOfUse' %}">Terms of Use</a>.</p>
+
+    <ul>
+        <li>
+            "<b>Users</b>".
+            <ul><li>means anybody who visits, accesses or has an account with this Website.</li></ul>
+        </li>
+
+        <li>
+            "<b>Website</b>".
+            <ul><li>means {{site_name}}.com in which may be refered to as "<b>Us</b>", "<b>We</b>", "<b>Our</b>" and "<b>Ours</b>"</li></ul>
+        </li>
+
+        <li>
+            "<b>Content</b>".
+            <ul><li>means any and all content that is uploaded by a User to this Website. Including Videos, Images, GIFs, Written Posts, Etc.</li></ul>
+        </li>
+
+        <li>
+            "<b>Hardcore Adult Content</b>".
+            <ul><li>means any form of adult content that may involve and include but not limited to: <b>Face Slapping</b>, <b>Spanking</b>, <b>Choking</b>, <b>Light Punching</b>,
+                <b>Hair Pulling</b>, <b>Spitting on Face</b>, <b>Any Form of CNC Play</b>, <b>Name Calling</b>, <b>Degrading Language and or Acts</b>, 
+                <b>Any Form of Consensual Rough Play</b>, <b>Humiliating Language and or Acts</b>, <b>Dominance Play Either Light or Heavy</b>, <b>Breath Play</b>
+                and <b>Forceful Play</b>.
+            </li></ul>
+        </li>
+
+        <li>
+            "<b>Adult Content</b>".
+            <ul><li>
+                means any material, such as but not limited to images, videos, text, or audio, that is inteded for consumption by adults due to 
+                its explicit, sexual, and or mature nature. This content may include nudity, sexual activity, violence, or explicit language, 
+                and is <b>NOT</b> suitable for minors under the age of <b>(18)</b> or <b>(21)</b> or individuals who are not comfortable with such material. 
+            </li></ul>
+        </li>
+    </ul>
+    <p>These definitions may change and or be updated anytime and it is your responsibility as a User to be well informed about this policy and others on this Website</p>
+
+    <hr>
+    <h3>About this website.</h3>
+    <p>
+        This Website functions as a platform dedicated to hosting and facilitating the sharing of adult-oriented content of an explicit nature. 
+        Through a thorough read of our <a href="{% url 'termsOfUse' %}">Terms of Use</a>, Users acknowledge and accept full responsibility for the 
+        Content they choose to upload onto this Website. Please read our <a href="{% url 'law_2257' %}">2257 Notice</a> to learn more about our responsibility.
+    </p>
+    <p>
+        Users who choose to upload and or submit Content are aware and accept our <a href="{% url 'termsOfUse' %}">Terms of Use</a> and other polices.
+    </p>
+    <p>
+        The Content you may view on this Website may be offensive, rude, violent and degrading. We will ensure that the Content here is 
+        <b>ONLY FOR ADULTS 18 or 21 years of age</b>. The Content on this Website is not for everyone and we encourage you to not stay if you
+        do not like this sort of Hardcore Adult Content or if this sort of Content makes you feel uncomfortable in any way. 
+    </p>
+
+    <p>All Content here and uploaded by Users who accept our <a href="{% url 'termsOfUse' %}">Terms of Use</a> before uploading content ensures that this content is Consensual and does <b>NOT</b> violate any (NCII) or (IBSA) Content.</p>
+
+    <p>
+        By visiting and or accessing this Website you are fully aware of the Content this Website hosts. And by continuing to access, view, visit, log into or otherwise access
+        this Website in any means you are accepting our <a href="{% url 'termsOfUse' %}">Terms of Use</a> and accepting this <b>Notice</b>. 
+    </p>
+
+    <p>
+        By visiting and or accessing this Website you agree that you are above and or at the age of <b>(18)</b> or <b>(21)</b>. And can legally view the
+        Content on this Website.
+    </p>
+</div>
+
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

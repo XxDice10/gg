@@ -1,0 +1,41 @@
+<div class="video-play" onload="redoVideo()">
+    <div class="video-overly" id="video_stale_backgroundID{{post.id}}" onclick="clickedVideoOverly('{{post.id}}')" onmouseover="ShowVideoControls('{{post.id}}')" onmouseleave="HideVideoControls('{{post.id}}')">
+        <video controls id="Myvideo{{post.id}}">
+            <source src="{{post.mediaPath}}" type="video/mp4">
+            <script>
+                    var video = document.getElementById(`Myvideo{{post.id}}`);
+                    video.controls = false;
+            </script>
+        </video>
+
+        <div class="play-pause">
+            <button id="playScreenButton{{post.id}}"><i class="fa-regular fa-circle-play"></i></button>
+            <button id="pauseScreenButton{{post.id}}" style="display: none;"><i class="fa-regular fa-circle-pause"></i></button>
+        </div>
+
+        <div class="video_controls" id="video_controlsID{{post.id}}" onmouseover="mouseOverOverly('{{post.id}}')"  onmouseleave="mouseLeaveOverly('{{post.id}}')">
+            <div class="first">
+                <button id="btn-play{{post.id}}" onclick="VC_playButton('{{post.id}}')"><i class="fa-solid fa-play"></i></button>
+                <button id="btn-pause{{post.id}}" style="display: none;" onclick="VC_pauseButton('{{post.id}}')"><i class="fa-solid fa-pause"></i></button>
+    
+                <button id="btn-unmute{{post.id}}" onclick="VC_muteOn('{{post.id}}')"><i class="fa-solid fa-volume-xmark"></i></button>
+                <button id="btn-m-off{{post.id}}" style="display: none;" onclick="VC_muteOff('{{post.id}}')"><i class="fa-solid fa-volume-off"></i></button>
+    
+                <button id="btn-r{{post.id}}" onclick="VC_rewind('{{post.id}}')"><i class="fa-solid fa-backward"></i></button>
+            </div>
+            <div class="second">
+                
+                {% if user.is_authenticated and is_premium1 == True %}
+                    <a href="{% url 'download_video' video_id=post.id %}"><button id="btn-d1{{post.id}}"><i class="fa-solid fa-download"></i></button></a>
+                {% else %}
+                    <button id="btn-d2{{post.id}}" onclick="VC_download('{{post.id}}','{{user.username}}')"><i class="fa-solid fa-download"></i></button>
+                {% endif %}
+    
+    
+                <button id="btn-f{{post.id}}" onclick="enterFullScreen('{{post.id}}')"><i class="fa-solid fa-expand"></i></button>
+                <button id="btn-xf{{post.id}}" style="display: none;" onclick="exitFullScreen('{{post.id}}')"><i class="fa-solid fa-compress"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>

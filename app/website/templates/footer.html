@@ -1,0 +1,158 @@
+<footer>
+
+    <div class="sections">
+
+        <div class="footer-left">
+
+            <h3>{{ site_name }}.com</h3>
+      
+            <div class="footer-links">
+              <a href="{% url 'index1' %}" class="link-1">Home</a> 
+            
+              <a href="{% url 'privacy_policy' %}" style="margin-left: 10;">Privacy Policy</a> 
+              
+              <a href="{% url 'termsOfUse' %}" style="margin-left: 10;">Terms of Use</a> 
+      
+              <a href="{% url 'notice' %}" style="margin-left: 10;">NOTICE</a>
+            </div>
+
+          </div>
+      
+
+          <div class="footer-center">
+
+            <div class="ulthing">
+                <a href="#">Search Videos</a>
+                <a href="#">Search Pictures</a>
+                <a href="#">Search GIFs</a>
+                <a href="#">Newest Videos</a>
+            </div>
+
+              <div class="ulthing">
+                  <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                  <a href="{% url 'termsOfUse' %}">Terms of Service</a>
+
+                  {% if user.is_authenticated%}
+                    <a href="{% url 'submission' %}">Submission</a>
+                  {% else %}
+                    <a href="{% url 'join' %}">Submission</a>
+                  {% endif %}
+                  <a href="{% url 'help_improve' %}">Help Improve</a>
+              </div>
+      
+              <div class="ulthing">
+                  <a href="{% url 'parental_controls' %}">Parietal Controls</a>
+                  <a href="{% url 'DMCA' %}">DMCA</a>
+                  <a href="{% url 'law_2257' %}">2257</a>
+                  <a href="{% url 'contact_us' %}">Contact Supoort</a>
+
+              </div>
+          </div>
+      
+
+          <div class="footer-right">
+      
+            <p class="footer-company-about">
+              {{ footer_paragraph }}
+            </p>
+      
+            <div class="footer-icons">
+      
+              <a href="{{ discord }}" target="_blank" id="discordFooter"><i class="fa-brands fa-discord"></i> Join Us</a>
+
+              <a href="https://www.rtalabel.org/index.html">
+                <img src="/static/images/rta-logo.png" alt="restricted to adults logo" style="margin-right: 5px;">
+              </a>
+      
+            </div>
+      
+          </div>
+
+    </div>
+
+    <div class="bottom_section">
+      <small>{{ site_name }}.com &copy; 2023 - {{ currentYear }} All Rights Reserved.</small>
+      <small>This site is running {{trackingSystem}} 1.0</small>
+    </div>
+
+
+    <div class="mobile_footer">
+
+      <div class="top2">
+        <h3>{{ site_name }}</h3>
+
+        <div class="thing101">
+          <a href="#">
+            <i class="fa-solid fa-video"></i>
+            <p>Videos</p>
+          </a>
+  
+          <a href="#">
+            <i class="fa-solid fa-image"></i>
+            <p>Pictures</p>
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-images"></i>
+            <p>GIFs</p>
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-user-plus"></i>
+            <p>Join</p>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="disocrdd">
+        <a href="{{discord}}">
+          <i class="fa-brands fa-discord"></i>
+          Follow On Discord
+        </a>
+      </div>
+
+      <div class="first_area">
+        <p>{{ mobile_paragraph }}</p>
+      </div>
+
+      <div class="sidenav">
+
+        <button class="dropdown-btn" onclick="openFooterOption('1')">
+          Infomation 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container1" id="dropeurID1">
+          <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+          <a href="{% url 'termsOfUse' %}">Terms of Service</a>
+          <a href="#">Help Improve</a>
+          <a href="{% url 'DMCA' %}">DMCA</a>
+          <a href="{% url 'law_2257' %}">2257</a>
+        </div>
+
+        <button class="dropdown-btn" onclick="openFooterOption('2')">
+          Support & Help 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container2" id="dropeurID2">
+          <a href="#">FAQ</a>
+          <a href="#">Parietal Controls</a>
+          <a href="#">Report Bugs</a>
+          <a href="#">Contact Support</a>
+          <a href="#">Content Removal</a>
+        </div>
+
+      </div>
+
+
+      <div class="bottom">
+        <small>{{currentYear}} {{site_name}}.com</small>
+        <a href="https://www.rtalabel.org/index.html">
+          <img src="/static/images/rta-logo.png" alt="restricted to adults logo" style="margin-right: 5px;">
+        </a>
+      </div>
+
+    </div>
+
+</footer>

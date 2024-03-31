@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+    <meta name="robots" content="noindex, follow">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Protest State - {{site_name}}.com</title>
+{% endblock title %}
+{% load static %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+    <input type="hidden" name="2257" id="page-on" value="protest">
+
+    {% include 'miscellaneous/legal_nav.html' %}
+
+
+    <div class="protest">
+        <h1>A Message from {{site_name}}</h1>
+        <hr>
+        <p> 
+            In compliance with regulatory standards, {{state}} now enforces age verification for accessing this website 
+            and numerous others containing adult content. While intended to shield minors from inappropriate material, 
+            this measure encroaches upon the rights of adults to access protected speech. Moreover, the efficacy and 
+            potential risks associated with requiring age identification for online adult content remain questionable.
+        </p>
+
+        <p>
+            We and many other adult content websites prioritize the protection of minors from viewing adult content, which is why many of us
+            have <a href="#">Parental Controls</a> on our websites to help <b>parents</b> monitor what their children view online.
+        </p>
+        <p>
+            We strongly believe that relying solely on the government to make laws and regulate online content, when parents are perfectly 
+            capable of doing so themselves, could actually do more harm than good. Mandating age verification without effective enforcement 
+            methods leaves platforms with the choice to comply or not. This leaves thousands of platforms vulnerable to minors who may not 
+            follow the same protective measures we take at {{site_name}}.com. Additionally, many of these platforms may lack proper parental 
+            controls, making the situation even more concerning.
+        </p>
+
+        <p>
+            Ensuring the safety of online users is paramount to us. However, the age verification law in {{state}} seems ineffective and 
+            potentially risky for users. Numerous adult content sites operate from foreign countries with varying standards for online 
+            user protection. While <b>{{site_name}}.com is US based</b>, many others aren't. Requiring age verification 
+            could entail providing personal ID to websites, potentially exposing sensitive data to multiple foreign entities and 
+            increasing the risk of identity-related issues.
+        </p>
+    </div>
+
+
+
+
+
+{% endblock content %}

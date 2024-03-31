@@ -1,0 +1,15 @@
+<div class="likes-comments">
+    <div class="heart">
+        {% if user.is_authenticated %}
+            {% if user.username in post.likes.split %}
+                <i class="fa-solid fa-heart mainHeartClicked" onclick="UserUnlike('{{post.id}}', '{{user.username}}')" id="heartLiked{{post.id}}"></i>
+                <i class="fa-regular fa-heart mainHeart" onclick="user_like_post('{{post.id}}', '{{user.username}}')" id="heartUnliked_s{{post.id}}" style="display: none;"></i>
+            {% else %}
+                <i class="fa-regular fa-heart mainHeart" onclick="user_like_post1('{{post.id}}', '{{user.username}}')" id="heartUnliked{{post.id}}"></i>
+                <i class="fa-solid fa-heart mainHeartClicked" onclick="UserUnlike1('{{post.id}}', '{{user.username}}')" id="heartLiked{{post.id}}" style="display: none;"></i>
+            {% endif %}
+        {% else %}
+            <i class="fa-regular fa-heart mainHeart" onclick="UserNeedLogin()"></i>
+        {% endif %}
+    </div>
+  </div>

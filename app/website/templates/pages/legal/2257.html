@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+<meta name="robots" content="noindex, follow">
+{% endblock meta %}
+{% load static %}
+
+
+{% block title %} 
+    <title>18 U.S.C § 2257 Statement | {{site_name}}.com</title>
+{% endblock title %}
+
+
+{% block styles %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/legal.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'miscellaneous/legal_nav.html' %}
+<input type="hidden" name="2257" id="page-on" value="2257">
+
+<div class="pppage">
+    <h1>18 U.S.C. §2257 Record Keeping Requirements Compliance Statement.</h1>
+    <h2>Read below to understand our rights and our compliance to 18 U.S.C. §2257</h2>
+    <hr>
+    <p>
+        The entity and or person managing {{site_name}}.com hereby clarifies that it does not act as the producer, 
+        whether primary or secondary as defined in 18 U.S.C. § 2257, of any content featured on the 
+        platform. Its involvement with such content is strictly confined to activities such as 
+        transmission, storage, retrieval, hosting, and/or formatting of depictions posted by 
+        third-party Users within sections of the Website under their control.
+    </p>
+
+    <p>
+        Please direct any request you may have regarding §2257 records in relation to any content found on {{site_name}}, 
+        directly to the respective uploader, amateur, producer, studio or account holder of the content.
+    </p>
+
+    <p>
+        For further assistance in communicating with the Verified Uploaders or any questions 
+        regarding this notice, please contact us <a href="#">here</a>.
+    </p>
+
+    <p>
+        {{site_name}} adheres to rigorous compliance protocols governing the uploading and submission of content: Such as;
+    </p>
+    <ul>
+        <li>
+            All Content uploaders must be of legal age, which is either eighteen (18) years or (21) years, depending on the a
+            pplicable laws of their State, jurisdiction, or Country. Prior to being granted access to upload, submit, or share 
+            any content on {{site_name}}, individuals are required to undergo personal identification and verification by 
+            {{site_name}} during the account activation process.
+        </li>
+
+        <li>
+            Before submitting or uploading any content, {{site_name}} ensures that all users and uploaders provide evidence or certify the following:
+        </li>
+
+        <li>
+            <ul>
+                <li>
+                    All individuals depicted in the content are of legal age, either over (18) or (21) years old at the time of upload or submission.
+                </li>
+                <li>
+                    As a producer and uploader of such content, the user certifies compliance with record-keeping obligations under U.S.C. § 2257 for all content uploaded on {{site_name}} and agrees to promptly provide such documentation upon request.
+                </li>
+                <li>
+                    The uploaded content does not violate {{site_name}}'s Terms of Use or any related policies, including but not limited to its policies on <a href="#">Child Sexual Abuse Material</a> or <a href="#">Non-Consensual Content</a>.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+
+<script src="{% static 'js/javascript-cdn-legal-1383.js' %}"></script>
+{% endblock content%}

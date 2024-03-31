@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block meta %} 
+<meta name="author" content='{{ metas.author }}'>
+<meta name="keywords" content="'{{ metas.keywords }}">
+<meta name="description" content="{{ metas.description }}">
+<meta name="rating" content="adult">
+{% endblock meta %}
+
+
+
+{% block title %} 
+    <title>Search '{{search_value}}' </title>
+{% endblock title %}
+
+
+
+{% block content %}
+{% load static %}
+
+  <h1>Search Results for {{search_value}}</h1>
+
+  <!-- <div hx-get="{% url 'posts' %}?page={{ page|add:1 }}"
+  hx-trigger='revealed'
+  hx-target='this'
+  hx-swap="outerHTML">
+  Loading
+  </div> -->
+
+
+
+{% endblock content %}

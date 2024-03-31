@@ -1,0 +1,285 @@
+$border-black: 2px solid black;
+$border-white: 2px solid white;
+$navbarA_Color: black;
+$navbar-backgroundColor: white;
+$transparent_color: rgba(0, 0, 0, 0);
+$standard_button_color: rgb(204, 58, 58);
+$standard_button_colorHover: rgb(180, 50, 50);
+
+
+// z-index
+$navbar_zindex:100;
+$messages_zindex:201;
+$customBootstrap_alert:500;
+$overlyZ_Index:1;
+$dropdown_search: 202;
+$loginContainerZ_index:11;
+$userSidePanelZ_index: 201;
+$postContainerZ_index: 11;
+$memberPopup: 510;
+$WARNING: 500;
+$hero_section: 200;
+$footer_zindex: 250;
+
+
+
+
+
+
+
+.mobile_menu111 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
+    width: 90%;
+    background-color: #1b1b1b;
+    max-height: 600px;
+    padding-bottom: 20px;
+    overflow: auto;
+
+    .nav_bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            color: white;
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+            color: $standard_button_color;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+
+        i {
+            color: white;
+            font-size: 20px;
+            margin-right: 10px;
+            color: $standard_button_color;
+            cursor: pointer;
+        }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        width: 90%;
+        padding: 5px;
+        margin: auto;
+        margin-top: 4px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #2b2b2b;
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+
+        .dropdown {
+            margin-left: 20px;
+        }
+
+        i {
+            color: white;
+
+        }
+    }
+
+    #PremiumID {
+        border: 2px solid $standard_button_color;
+        padding: 10px;
+    }
+
+    .mobileMenuDropdownTAGS {
+        color: white;
+        display: none;
+        width: 90%;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        a {
+            border: 1px solid $standard_button_color;
+            color: white;
+        }
+    }
+
+    .otherOptions {
+        width: 90%;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+
+        a {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+            padding: 10px;
+        }
+    }
+}
+
+
+
+
+
+
+.mobile_userSetting {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 400;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.76);
+    height: 100%;
+
+    .section1 {
+        position: fixed;
+        right: 250;
+        top: 10;
+        width: 30%;
+        height: 100%;
+        text-align: end;
+        
+        #lol222 {
+            color: white;
+        }
+    }
+
+    .section2 {
+        background-color: rgb(43, 43, 43);
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+
+        .login_section {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(32, 32, 32);
+            width: 90%;
+            margin: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+
+
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: white;
+                font-size: 12px;
+            }
+        }
+
+
+        .later_section {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(32, 32, 32);
+            width: 90%;
+            margin: auto;
+            margin-top: 1px;
+            border-radius: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+
+            a {
+                display: flex;
+                align-items: center;
+                color: white;
+                font-size: 12px;
+
+                i {
+                    margin-right: 2px;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+/* For WebKit-based browsers (Chrome, Safari, Opera) */
+.mobile_menu111::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+    border-radius: 5px;
+}
+
+.mobile_menu111::-webkit-scrollbar-track {
+    background: #5e5e5e; /* Color of the track */
+}
+
+.mobile_menu111::-webkit-scrollbar-thumb {
+    background: $standard_button_color; /* Color of the thumb */
+}
+
+.mobile_menu111::-webkit-scrollbar-thumb:hover {
+    background: $standard_button_colorHover; /* Color of the thumb on hover */
+}
+
+
+
+
+
+.mobile_search_bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.831);
+    z-index: 600;
+
+    .mobile_searchBar {
+        position: fixed;
+        top: 7;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        justify-content: space-between;
+
+        form {
+            width: 70%;
+
+            input {
+                background-color: #2b2b2b;
+                border-radius: 50px;
+                margin-left: 10px;
+                width: 100%;
+                border: none;
+                padding: 5px;
+                color: white;
+    
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            input[type="search"]::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+            }
+
+        }
+
+        button {
+            margin-right: 10px;
+            background-color: transparent;
+            border: none;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+    }
+
+
+}

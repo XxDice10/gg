@@ -1,0 +1,17 @@
+
+
+
+
+{% if user in post.dislikes.all %}
+    <div class="unlikes">
+        <i class="fa-solid fa-thumbs-down" id="thumbs-down-unlike" onclick="thumbs_down('unlike')"></i>
+        <i class="fa-regular fa-thumbs-down" id="thumbs-down-like" onclick="thumbs_down('like')"></i>
+        <p>{{post.number_of_dislikes}}</p>
+    </div>
+{% else %}
+    <div class="unlikes">
+        <i class="fa-regular fa-thumbs-down" id="thumbs-down-unlike" onclick="thumbs_down('unlike')"></i>
+        <i class="fa-solid fa-thumbs-down" id="thumbs-down-like" onclick="thumbs_down('like')"></i>
+        <p>{{post.number_of_dislikes}}</p>
+    </div>
+{% endif %}

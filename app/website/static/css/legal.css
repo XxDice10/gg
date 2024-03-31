@@ -1,0 +1,429 @@
+.protest {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  position: relative;
+  z-index: 200;
+}
+.protest hr {
+  color: #cc3a3a;
+}
+.protest h1 {
+  font-size: 27px;
+}
+.protest small {
+  font-size: 10px;
+}
+.protest a {
+  color: #cc3a3a;
+}
+.protest h2 {
+  font-size: 15px;
+}
+.protest h3 {
+  font-size: 18px;
+}
+.protest p {
+  font-size: 12px;
+}
+.protest ul li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.protest ol li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.protest button {
+  background-color: #454545;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 5px;
+}
+
+.dropdown_question {
+  border-bottom: 2px solid rgb(180, 50, 50);
+  margin-bottom: 2%;
+  margin-top: 4%;
+  cursor: pointer;
+}
+.dropdown_question .question {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown_question .question h3 {
+  font-size: 20px;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.634);
+}
+.dropdown_question .question i {
+  margin-right: 10px;
+}
+.dropdown_question .answer {
+  display: none;
+}
+.dropdown_question .answer p {
+  margin-left: 10px;
+  margin-top: 10px;
+  color: rgb(183, 183, 183);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.dropdown_question:hover {
+  border-bottom: 2px solid rgb(131, 69, 69);
+}
+.dropdown_question:hover .question h3 {
+  color: white;
+}
+
+.pppage {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  position: relative;
+  z-index: 200;
+}
+.pppage hr {
+  color: #cc3a3a;
+}
+.pppage h1 {
+  font-size: 27px;
+}
+.pppage small {
+  font-size: 10px;
+}
+.pppage a {
+  color: #cc3a3a;
+}
+.pppage h2 {
+  font-size: 15px;
+}
+.pppage h3 {
+  font-size: 18px;
+}
+.pppage h4 {
+  font-size: 18px;
+  background-color: #272727;
+  width: 50%;
+  padding: 5px;
+}
+.pppage p {
+  font-size: 12px;
+}
+.pppage ul li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.pppage ol li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.pppage button {
+  background-color: #454545;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 5px;
+}
+.pppage .box-children {
+  border-left: 5px solid rgba(204, 58, 58, 0.4274509804);
+  padding: 5px;
+}
+.pppage .urls-inputs {
+  border: 1px solid #cc3a3a;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 60%;
+  margin-bottom: 10px;
+}
+.pppage .urls-inputs input {
+  margin-bottom: 10px;
+}
+.pppage .contact-info {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.pppage .contact-info .onetime {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.pppage .contact-info .onetime input {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-bottom: 2px solid black;
+}
+.pppage .contact-info .onetime input:focus {
+  outline: none;
+  border-bottom: 2px solid #cc3a3a;
+}
+.pppage #contact-formID {
+  width: 60%;
+}
+.pppage #contact-formID .contact-email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.pppage #contact-formID .contact-email input {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-bottom: 2px solid black;
+}
+.pppage #contact-formID .contact-email input:focus {
+  outline: none;
+  border-bottom: 2px solid #cc3a3a;
+}
+.pppage #contact-formID .contact-email select {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-bottom: 2px solid black;
+}
+.pppage #contact-formID .contact-email select:focus {
+  outline: none;
+}
+.pppage #contact-formID .contact-email textarea {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-bottom: 2px solid black;
+  resize: none;
+}
+.pppage #contact-formID .contact-email textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #cc3a3a;
+}
+.pppage #contact-formID #content0 {
+  padding-left: 60px;
+  padding-right: 60px;
+  background-color: #cc3a3a;
+}
+
+#personal_dataID {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 5px;
+}
+#personal_dataID .first_last {
+  width: 100%;
+}
+#personal_dataID input[type=text],
+#personal_dataID input[type=email] {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #222222;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#personal_dataID input[type=text]:focus,
+#personal_dataID input[type=email]:focus {
+  outline: none;
+  border-bottom: 2px solid white;
+}
+#personal_dataID select {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #222222;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.legal_nav {
+  display: flex;
+  position: relative;
+  width: 60%;
+  margin: auto;
+  margin-top: 2%;
+  z-index: 200;
+  background-color: #272727;
+  padding: 5px;
+  justify-content: space-around;
+}
+.legal_nav a {
+  color: rgb(106, 106, 106);
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  border-bottom: 2px solid transparent; /* Set the border to be transparent by default */
+  transition: border-bottom-color 0.3s;
+}
+.legal_nav a:hover {
+  border-bottom: 2px solid white;
+  color: rgb(180, 50, 50);
+}
+
+.search-warning {
+  width: 80%;
+  margin: auto;
+  color: white;
+  margin-top: 4%;
+  text-align: center;
+  position: relative;
+  z-index: 200;
+}
+.search-warning i {
+  font-size: 100px;
+}
+.search-warning h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 30px;
+}
+.search-warning h2 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 30px;
+}
+.search-warning h3 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 30px;
+}
+.search-warning a {
+  color: #cc3a3a;
+}
+.search-warning #returnButton {
+  background-color: #cc3a3a;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.pppage-dmca-takedown {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  position: relative;
+  z-index: 200;
+}
+.pppage-dmca-takedown hr {
+  color: #cc3a3a;
+}
+.pppage-dmca-takedown h1 {
+  font-size: 27px;
+}
+.pppage-dmca-takedown h2 {
+  font-size: 15px;
+}
+.pppage-dmca-takedown h3 {
+  font-size: 18px;
+}
+.pppage-dmca-takedown h4 {
+  font-size: 18px;
+  background-color: #272727;
+  width: 50%;
+  padding: 5px;
+}
+.pppage-dmca-takedown ul li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.pppage-dmca-takedown p {
+  font-size: 11px;
+  width: 60%;
+}
+.pppage-dmca-takedown .legal-checkbox {
+  font-size: 10px;
+}
+.pppage-dmca-takedown .lba-dmca {
+  font-size: 12px;
+}
+.pppage-dmca-takedown ol li {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.pppage-dmca-takedown .urls-inputs {
+  border: 1px solid #cc3a3a;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 60%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.pppage-dmca-takedown .urls-inputs input {
+  margin-bottom: 10px;
+}
+.pppage-dmca-takedown .contact-info {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.pppage-dmca-takedown .contact-info .onetime {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.pppage-dmca-takedown .contact-info .onetime input {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-bottom: 2px solid black;
+}
+.pppage-dmca-takedown .contact-info .onetime input:focus {
+  outline: none;
+  border-bottom: 2px solid #cc3a3a;
+}
+.pppage-dmca-takedown #child-abuse-button {
+  background-color: rgb(180, 50, 50);
+  padding: 5px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.pppage-dmca-takedown button {
+  background-color: rgb(180, 50, 50);
+  padding: 5px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.pppage-dmca-takedown .final-input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.pppage-dmca-takedown .final-input label {
+  font-size: 12px;
+}
+.pppage-dmca-takedown .final-input input {
+  font-size: 14px;
+  background-color: #272727;
+  border-bottom: 2px solid black;
+  color: white;
+  border: none;
+}
+.pppage-dmca-takedown .final-input input:focus {
+  outline: none;
+  border-bottom: 2px solid #cc3a3a;
+}/*# sourceMappingURL=legal.css.map */
