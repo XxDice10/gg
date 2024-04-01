@@ -26,7 +26,7 @@ def standard_recommendation(last_video):
             last_video = str(last_video)
             
             # getting title from play_id
-            query = 'SELECT title FROM {} WHERE play_id = ? LIMIT 1'.format(ab)
+            query = 'SELECT title FROM {} WHERE id = ? LIMIT 1'.format(ab)
             cur.execute(query, (last_video,))
             target_title = cur.fetchone()[0]
             

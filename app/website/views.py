@@ -132,18 +132,24 @@ basic_context = {
 @check_state
 @execution_time   # | Execution time: 0.043350 seconds
 def index1(request):
+    orientation101 = str(request.COOKIES.get('orientation')) # last_video cookie 
+    
+    if orientation101 == 'straight':
+        pass
+    elif orientation101 == 'gay':
+        return redirect('gay')
+    else:
+        return redirect('trans')
+    
     # =============== starter variables ================ #
 
     last_video = str(request.COOKIES.get('last_videoCookie')) # last_video cookie 
-    print('.'*45)
-    print(f'last_video = {last_video}')
+    last_video = "None"
     
     videos0 = []
-    if last_video != "None" and last_video != '1':
+    if last_video != "None":
         ids0 = recommendation_system.standard_recommendation(last_video)
         videos0 = Post.objects.filter(title__in=ids0).order_by(Random())
-        print('8' *34)
-        print(videos0)
     else:
         pass
     
@@ -194,7 +200,27 @@ def index1(request):
 @check_state
 @execution_time   # | Execution time: 0.043350 seconds
 def gay_homepage(request):
+    # =============== starter variables ================ #
+    last_video = str(request.COOKIES.get('last_videoCookie')) # last_video cookie 
+    
+    videos0 = []
+    if last_video != "None":
+        ids0 = recommendation_system.standard_recommendation(last_video)
+        videos0 = Post.objects.filter(title__in=ids0).order_by(Random())
+    else:
+        pass
+    
+    orientation_.clear()
+    orientation_.append('gay')
+    
+    
+    
+    
+    
+    orientation_icon1 = orientation_icons[orientation_[0]]
     context = {
+        "orientation": orientation_[0],
+        'oi': orientation_icon1,
         
     }
     context.update(basic_context)
@@ -209,25 +235,19 @@ def gay_homepage(request):
 @check_state
 @execution_time   # | Execution time: 0.043350 seconds
 def trans_homepage(request):
+    
+    
+    orientation_.clear()
+    orientation_.append('trans')
+    
+    orientation_icon1 = orientation_icons[orientation_[0]]
     context = {
+        "orientation": orientation_[0],
+        'oi': orientation_icon1,
         
     }
     context.update(basic_context)
     return render(request, 'home_pages/trans.html', context)
-
-
-
-        
-def change_orientation(request, orientation):
-    # Set the orientation in the cookie
-    global orientation_
-    orientation_.clear()
-    orientation_.append(orientation)
-
-    return redirect('index1')
-
-
-
 
 
 

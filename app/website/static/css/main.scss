@@ -2201,10 +2201,11 @@ $jumbotron_image: url('/static/mainMedia/beforeenter.jpg');
 
 
 .index_banner_ad {
-    width: 100%; 
+    width: 60%;
+    margin: auto; 
     height: 140px; 
-    border: 2px solid white; 
     margin-top: 3%; 
     position: relative; 
     z-index: 1000;
+
 }

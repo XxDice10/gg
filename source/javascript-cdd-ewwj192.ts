@@ -75,6 +75,11 @@ function updateCookie(cookieName:any, newValue:any) {
 }
 
 
+function deleteCookie(cookieName:string) {
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+
 
 function savingCookie() {
     let popup_container:any = document.getElementById('entryWarningID');
@@ -485,64 +490,6 @@ function show_message(message:string) {
         messages_msg.style.display = 'none';
     }, 3000);
 };
-
-
-
-
-
-
-
-// let userSetting:any = document.getElementById('downID')
-
-// function open_userSetting() {
-//     userSetting.style.display = 'block';
-//     console.log('open_userSetting function')
-// }
-
-
-
-
-
-
-
-
-// let sidePanel_open:boolean = false;
-
-// let UserAuthButton = document.getElementById('loggedINBtn');
-
-// // Check if the element exists before trying to add an event listener
-// if (UserAuthButton) {
-//     UserAuthButton.addEventListener('click', function() {
-//         // Your event handling code here
-//         let sidePanel:any = document.getElementById("mySidepanel");
-//         let closeBtn:any = document.getElementById('closeBtn2')
-//         sidePanel.style.width = "250px";
-//         closeBtn.style.display = 'block';
-//         sidePanel_open = true;
-//         console.log('here')
-          
-//     });
-// }
-
-// function closeNav() {
-//     let sidePanel:any = document.getElementById("mySidepanel");
-//     sidePanel.style.width = "0";
-//     let closeBtn:any = document.getElementById('closeBtn2')
-//     closeBtn.style.display = 'none';
-//     sidePanel_open = false;
-// }
-
-
-
-// overly.addEventListener('click', function() {
-//     if (sidePanel_open == true) {
-//         closeNav()
-//     } else {
-//         doNothing()
-//     }
-
-//     popup.style.display = 'none';
-// });
 
 
 
@@ -1002,5 +949,14 @@ function open_mobileUser() {
 
 // function that changes the sexual orientation 
 function change_orientation(orientation:string) {
-    updateCookie('orientation', orientation)
+
+    let theCookie:any = getCookie('orientation')
+
+    if (theCookie != '') {
+        deleteCookie('orientation')
+        setCookie('orientation', orientation, 10000)
+    } else {
+        setCookie('orientation', orientation, 10000)
+    }
+    
 };

@@ -2,11 +2,27 @@
 <nav>
 
     <div class="first">
-        <a href="{% url 'index1' %}" id="homepage">
-            <div class="logo">
-                <img src="/static/images/Dice.png" alt="real misogyny home page link" style="border-radius: 5px;">
-            </div>
-        </a>
+        {% if orientation == 'straight' %}
+            <a href="{% url 'index1' %}" id="homepage">
+                <div class="logo">
+                    <img src="/static/images/Dice.png" alt="xxdice homepage link" style="border-radius: 5px;">
+                </div>
+            </a>
+        {% elif orientation == 'gay' %}
+            <a href="{% url 'gay' %}" id="homepage">
+                <div class="logo">
+                    <img src="/static/images/Dice.png" alt="xxdice homepage link" style="border-radius: 5px;">
+                </div>
+            </a>
+        {% else %}
+            <a href="{% url 'trans' %}" id="homepage">
+                <div class="logo">
+                    <img src="/static/images/Dice.png" alt="xxdice homepage link" style="border-radius: 5px;">
+                </div>
+            </a>
+        {% endif %}
+
+
     </div>
 
 

@@ -2,7 +2,14 @@
 
 <div class="secondry_dropdown">
 
-    <a href="{% url 'index1' %}">Home</a>
+    {% if orientation == 'straight' %}
+        <a href="{% url 'index1' %}">Home</a>
+    {% elif orientation == 'gay' %}
+        <a href="{% url 'gay' %}">Home</a>
+    {% else %}
+        <a href="{% url 'trans' %}">Home</a>
+    {% endif %}
+
 
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

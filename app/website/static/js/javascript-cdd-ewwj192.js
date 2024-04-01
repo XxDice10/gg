@@ -45,6 +45,9 @@ function updateCookie(cookieName, newValue) {
     var updatedCookie = cookieName + "=" + newValue;
     document.cookie = updatedCookie;
 }
+function deleteCookie(cookieName) {
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 function savingCookie() {
     let popup_container = document.getElementById('entryWarningID');
     popup_container.style.display = 'none';
@@ -548,6 +551,13 @@ function open_mobileUser() {
 }
 ;
 function change_orientation(orientation) {
-    updateCookie('orientation', orientation);
+    let theCookie = getCookie('orientation');
+    if (theCookie != '') {
+        deleteCookie('orientation');
+        setCookie('orientation', orientation, 10000);
+    }
+    else {
+        setCookie('orientation', orientation, 10000);
+    }
 }
 ;

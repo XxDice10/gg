@@ -57,7 +57,6 @@ urlpatterns = [
     path('process_data_request/', views.process_data_request, name='process_data_request'),
     path('user_updates_profile/', route_functions.user_updates_profile, name='user_updates_profile'),
     
-    path('change_orientation/<str:orientation>/', views.change_orientation, name='change_orientation'),
     
     
     #, video page functions
