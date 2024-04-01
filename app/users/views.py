@@ -1,15 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from . forms import RegisterUserForm
-from django.contrib.auth.decorators import login_required
 from website import models
 import sqlite3
-from website import views
-from website import random_stuff
-from website import app_functions
-from website import vistior_session_stuff
+from website import views, random_stuff, app_functions, vistior_session_stuff, decorators_
 
 
 db_path = 'db.sqlite3'
@@ -45,7 +40,7 @@ def login_required2(func):
 
 def check_maintenance(func):
     def wrapper(request):
-        if views.maintenance == True:
+        if decorators_.maintenance == True:
             context = {}
             return render(request, 'pages/maintenance.html', context)
         else:

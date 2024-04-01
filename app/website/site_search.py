@@ -1,9 +1,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .models import Post
-from . import app_functions
-from .decorators_ import check_state, check_maintenance2
-from .views import basic_context, maintenance
+from .decorators_ import check_state, check_maintenance2, maintenance
+from .views import basic_context
 import sqlite3
 
 db_name = 'db.sqlite3'

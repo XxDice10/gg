@@ -1,22 +1,13 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .models import Post
-from django.db.models import Q
 from . import app_functions, meta_info, recommendation_system
 import os
 from django.contrib import messages
-from django.conf import settings
 from . import random_stuff
 from .decorators_ import check_maintenance2, check_state, execution_time
-import sqlite3
-import traceback
-from django.http import HttpResponse
 from django.db.models.functions import Random
 
 # Create your views here.
-
-#. turn to True to set site maintenance to True
-maintenance = False 
 
 #. Is server live 
 server_live = False
@@ -32,75 +23,6 @@ ab = 'website_post'
 orientation_ = ["straight"]
 
 orientation_icons = {"gay":"fa-solid fa-venus-double", 'straight': 'fa-solid fa-venus', 'trans': 'fa-solid fa-transgender'}
-
-
-
-def get_target_title(play_id):
-    try:
-        db = sqlite3.connect(db_name1)
-        with db:
-            cur = db.cursor()
-            cur.execute(f'SELECT title FROM {ab} WHERE play_id = ?', (play_id,))
-            target_title = cur.fetchone()[0]
-            print(target_title)
-            return target_title
-        
-    except sqlite3.Error as e:
-        print('Sqlite Error', e)
-        traceback.print_exc()
-        return 'error'
-    except Exception as e:
-        print()
-        print('='*45)
-        print("An error occurred:", e)
-        traceback.print_exc()
-        return ['error', e]
-    finally:
-        db.close()
-        
-
-def index_recommendation(play_id):
-    try:
-        db = sqlite3.connect(db_name1)
-        with db:
-            cur = db.cursor()
-            
-            try:
-                cur.execute(f'SELECT tags FROM {ab} WHERE play_id = ?', (play_id,))
-                
-                played_tags = str(cur.fetchall()[0][0]).split(';')
-                
-                #Collect all tags
-                tag_conditions = " OR ".join([f"tags LIKE '%{tag}%'" for tag in played_tags])
-
-                # Execute a single SQL query to fetch results for all tags
-                cur.execute(f"SELECT id FROM {ab} WHERE {tag_conditions} ORDER BY views DESC LIMIT 1000")
-
-                # Fetch all results at once
-                things = cur.fetchall()
-
-                # Extract IDs from the fetched results
-                IDs = [id[0] for id in things]
-
-                return IDs
-            except:
-                print('shitttee')
-        
-    except sqlite3.Error as e:
-        print('Sqlite Error', e)
-        traceback.print_exc()
-        return 'error'
-    except Exception as e:
-        print()
-        print('='*45)
-        print("An error occurred:", e)
-        traceback.print_exc()
-        return ['error', e]
-    finally:
-        db.close()
-
-
-
 
 
 
@@ -130,7 +52,6 @@ basic_context = {
 #* route function for Index Page
 @check_maintenance2
 @check_state
-@execution_time   # | Execution time: 0.043350 seconds
 def index1(request):
     orientation101 = str(request.COOKIES.get('orientation')) # last_video cookie 
     
@@ -157,19 +78,15 @@ def index1(request):
     orientation_.append('straight')
     
     meta = meta_info.index_page # getting meta info for index page
+        
+    ids = recommendation_system.get_sub_videos()
     
     # Trending videos
-    ids = recommendation_system.trending_videos()
-    videos = Post.objects.filter(id__in=ids).order_by(Random())
-    
+    videos = Post.objects.filter(id__in=ids[0]).order_by(Random())
     # Most Liked
-    ids1 = recommendation_system.most_liked_videos()
-    videos1 = Post.objects.filter(id__in=ids1).order_by(Random())
-    
-    
+    videos1 = Post.objects.filter(id__in=ids[1]).order_by(Random())
     # Get exclusives
-    ids3 = recommendation_system.exclusives()
-    videos2 = Post.objects.filter(id__in=ids3).order_by(Random())
+    videos2 = Post.objects.filter(id__in=ids[2]).order_by(Random())
 
 
     orientation_icon1 = orientation_icons[orientation_[0]]

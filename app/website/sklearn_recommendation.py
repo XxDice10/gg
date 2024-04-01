@@ -1,19 +1,8 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import sqlite3
-import numpy as np
-import traceback
 
 
 vectorizer = TfidfVectorizer()
-
-
-
-
-ab = 'website_post'
-db_name1 = 'db.sqlite3'
-
-
 
 
 def find_similar_titles(target_title, titles, titles1, ):

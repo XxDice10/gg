@@ -1,14 +1,15 @@
 from django.shortcuts import render
-from .models import Post
 from . import vistior_session_stuff
 from . import views
 import time
 
+#. turn to True to set site maintenance to True
+maintenance = False 
 
 
 def check_maintenance2(func):
     def wrapper(request):
-        if views.maintenance == True:
+        if maintenance == True:
             return render(request, 'pages/maintenance.html', {})
         else:
             return func(request)

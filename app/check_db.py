@@ -1,11 +1,6 @@
 import sqlite3
 import datetime
 import time
-from django.http import JsonResponse
-import random
-from website import app_functions
-import time
-import numpy as np
 
 
 
@@ -263,46 +258,25 @@ import traceback
 db_name1 = 'db.sqlite3'
 ab = 'website_post'
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-vectorizer = TfidfVectorizer()
 
 
-def find_similar_titles(target_title, titles, titles1, ):
 
-    title_vectors = vectorizer.fit_transform(titles1)
-    
-    threshold = 0.15
-    target_vector = vectorizer.transform([target_title])
-    similarity_scores = cosine_similarity(target_vector, title_vectors)[0]
-    similar_titles = [(titles[i], similarity) for i, similarity in enumerate(similarity_scores) if similarity > threshold]
-    similar_titles.sort(key=lambda x: x[1], reverse=True)  # Sort similar titles by similarity score
-    return_titles = [titlee[0] for titlee in similar_titles]
-    return return_titles[:8]
-
-
-@execution_time
-def standard_recommendation(last_video):
+def trending_videos():
     try:
         db = sqlite3.connect(db_name1)
         with db:
             cur = db.cursor()
             
-            last_video = str(last_video)
-            
-            # getting title from play_id
-            query = 'SELECT title FROM {} WHERE play_id = ? LIMIT 1'.format(ab)
-            cur.execute(query, (last_video,))
-            target_title = cur.fetchone()[0]
-            
-            # getting the 1000 videos
-            query1 = 'SELECT title FROM {} LIMIT 1005'.format(ab)
-            cur.execute(query1)
-            titles_list = [title[0] for title in cur.fetchall()]
-            
-            IDs = find_similar_titles(target_title, titles_list, titles_list)
+            # Calculate the timestamp for 24 hours ago
+            twenty_four_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=24)
 
-            return IDs
+            # Execute the query
+            cur.execute('SELECT id FROM {} WHERE timestamp >= ? ORDER BY views DESC LIMIT 8'.format(ab), (twenty_four_hours_ago,))
+            # Fetch the results directly into a list comprehension
+            by_views = [view_id[0] for view_id in cur.fetchall()]
+                        
+            return_list = list(set(by_views))
+            return return_list
     except sqlite3.Error as e:
         print('Sqlite Error', e)
         traceback.print_exc()
@@ -316,5 +290,101 @@ def standard_recommendation(last_video):
     finally:
         db.close()
         
-a = standard_recommendation('9qWQdXQ3')
+
+
+
+def most_liked_videos():
+    try:
+        db = sqlite3.connect(db_name1)
+        with db:
+            cur = db.cursor()
+            
+            # Calculate the timestamp for 24 hours ago
+            twenty_four_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=24)
+
+            # Execute the query
+            cur.execute('SELECT id FROM {} WHERE timestamp >= ? ORDER BY likes DESC LIMIT 8'.format(ab), (twenty_four_hours_ago,))
+            # Fetch the results directly into a list comprehension
+            by_views = [view_id[0] for view_id in cur.fetchall()]
+                        
+            return_list = list(set(by_views))
+            return return_list
+    except sqlite3.Error as e:
+        print('Sqlite Error', e)
+        traceback.print_exc()
+        return 'error'
+    except Exception as e:
+        print()
+        print('='*45)
+        print("An error occurred:", e)
+        traceback.print_exc()
+        return ['error', e]
+    finally:
+        db.close()
+        
+        
+def exclusives():
+    try:
+        db = sqlite3.connect(db_name1)
+        with db:
+            cur = db.cursor()
+        
+
+            # Execute the query
+            cur.execute('SELECT id FROM {} WHERE embedded != "True" ORDER BY views DESC LIMIT 8'.format(ab))
+            # Fetch the results directly into a list comprehension
+            by_views = [view_id[0] for view_id in cur.fetchall()]
+                        
+            return_list = list(set(by_views))
+            return return_list
+    except sqlite3.Error as e:
+        print('Sqlite Error', e)
+        traceback.print_exc()
+        return 'error'
+    except Exception as e:
+        print()
+        print('='*45)
+        print("An error occurred:", e)
+        traceback.print_exc()
+        return ['error', e]
+    finally:
+        db.close()
+        
+        
+@execution_time     
+def get_sub_videos():
+    db_name1 = 'db.sqlite3'
+    ab = 'website_post'
+    try:
+        db = sqlite3.connect(db_name1)
+        with db:
+            cur = db.cursor()
+            
+            # Calculate the timestamp for 24 hours ago
+            twenty_four_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=24)
+
+            # getting videos by highest views within 24 hours
+            cur.execute('SELECT id FROM {} WHERE timestamp >= ? ORDER BY views DESC LIMIT 8'.format(ab), (twenty_four_hours_ago,))
+            by_views = [view_id1[0] for view_id1 in cur.fetchall()]
+                   
+            # getting videos by highest likes within 24 hours
+            cur.execute('SELECT id FROM {} WHERE timestamp >= ? ORDER BY likes DESC LIMIT 8'.format(ab), (twenty_four_hours_ago,))
+            by_likes = [view_id2[0] for view_id2 in cur.fetchall()]  
+            
+            # getting exclusives
+            cur.execute('SELECT id FROM {} WHERE embedded != "True" ORDER BY views DESC LIMIT 8'.format(ab))
+            by_exs = [view_id3[0] for view_id3 in cur.fetchall()]
+            
+            return by_views, by_likes, by_exs
+    except sqlite3.Error as e:
+        traceback.print_exc()
+        return 'error'
+    except Exception as e:
+        traceback.print_exc()
+        return ['error', e]
+    finally:
+        db.close()    
+        
+   
+a = get_sub_videos()
 print(a)
