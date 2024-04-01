@@ -135,36 +135,48 @@ def index1(request):
     # =============== starter variables ================ #
 
     last_video = str(request.COOKIES.get('last_videoCookie')) # last_video cookie 
+    print('.'*45)
+    print(f'last_video = {last_video}')
+    
+    videos0 = []
+    if last_video != "None" and last_video != '1':
+        ids0 = recommendation_system.standard_recommendation(last_video)
+        videos0 = Post.objects.filter(title__in=ids0).order_by(Random())
+        print('8' *34)
+        print(videos0)
+    else:
+        pass
     
     orientation_.clear()
     orientation_.append('straight')
     
     meta = meta_info.index_page # getting meta info for index page
     
-    ids = recommendation_system.standard_recommendation(last_video)
-    
+    # Trending videos
+    ids = recommendation_system.trending_videos()
     videos = Post.objects.filter(id__in=ids).order_by(Random())
+    
+    # Most Liked
+    ids1 = recommendation_system.most_liked_videos()
+    videos1 = Post.objects.filter(id__in=ids1).order_by(Random())
+    
+    
+    # Get exclusives
+    ids3 = recommendation_system.exclusives()
+    videos2 = Post.objects.filter(id__in=ids3).order_by(Random())
 
-    videos_per_page = 20 # Define how many videos you want per page
-    
-    paginator = Paginator(videos, videos_per_page) # Create a Paginator object
-    
-    page_number = request.GET.get('page', 1) # Get the current page number from the request, defaulting to 1
-    
-    try:
-        videos_page = paginator.page(page_number) # Get the videos for the requested page
-    except PageNotAnInteger:
-        videos_page = paginator.page(1) # If page is not an integer, deliver first page.
-    except EmptyPage:
-        videos_page = paginator.page(paginator.num_pages) # If page is out of range (e.g. 9999), deliver last page of results.
 
     orientation_icon1 = orientation_icons[orientation_[0]]
     context = {
         "isLive":True, 
         'metas':meta, 
-        'videos_page': videos_page,
+        'videos_page': videos,
         "orientation": orientation_[0],
-        'oi': orientation_icon1
+        'oi': orientation_icon1,
+        'last_video': last_video,
+        'most_liked': videos1,
+        'exclusives': videos2,
+        're':videos0
     }
     
     context.update(basic_context)

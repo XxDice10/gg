@@ -1,0 +1,223 @@
+
+
+
+<div class="newvideos">
+    <h3>Recommendations <i class="fa-solid fa-bolt video_type_icon"></i></h3>
+
+    <hr>
+    <div class="video_selection">
+        {% for post in re %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" loading="lazy">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}" loading="lazy">
+                        {% endif %}
+    
+                        <div class="player1">
+                            {% if post.embedded == 'False' %}
+                            <div class="tooltip1">
+                                <i class="fa-solid fa-star" id="star-power-exclusive-video"></i>
+                                <p class="tooltiptext" id="tooltipText1">{{site_name}} exclusive</p>
+                            </div>
+                            {% else %}
+                            {% endif %}
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.total_views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    <a href="#" class="more_videos_search">See More Trending Videos</a>
+</div>
+
+<br>
+
+<div class="newvideos">
+    <h3>Trending Videos <i class="fa-solid fa-bolt video_type_icon"></i></h3>
+
+    <hr>
+    <div class="video_selection">
+        {% for post in videos_page %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" loading="lazy">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}" loading="lazy">
+                        {% endif %}
+    
+                        <div class="player1">
+                            {% if post.embedded == 'False' %}
+                              <div class="tooltip1">
+                                <i class="fa-solid fa-star" id="star-power-exclusive-video"></i>
+                                <p class="tooltiptext" id="tooltipText1">{{site_name}} exclusive</p>
+                              </div>
+                            {% else %}
+                            {% endif %}
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.total_views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    <a href="#" class="more_videos_search">See More Trending Videos</a>
+</div>
+
+<br>
+
+<div class="newvideos">
+    <h3>Most Likes <i class="fa-solid fa-heart video_type_icon"></i></h3>
+
+    <hr>
+    <div class="video_selection">
+        {% for post in most_liked %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" loading="lazy">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}" loading="lazy">
+                        {% endif %}
+    
+                        <div class="player1">
+                            {% if post.embedded == 'False' %}
+                              <div class="tooltip1">
+                                <i class="fa-solid fa-star" id="star-power-exclusive-video"></i>
+                                <p class="tooltiptext" id="tooltipText1">{{site_name}} exclusive</p>
+                              </div>
+                            {% else %}
+                            {% endif %}
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.total_views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    <a href="#" class="more_videos_search">See More Liked Videos</a>
+</div>
+
+<br>
+
+<div class="newvideos">
+    <h3>Our Exclusives <i class="fa-solid fa-star video_type_icon"></i></h3>
+
+    <hr>
+    <div class="video_selection">
+        {% for post in exclusives %} 
+            <div class="video_sel">
+                <a href="{% url 'video' play_id=post.play_id %}">
+                    <div class="thumbnail_container">
+                        {% if post.mediaType == 'video-w' %}
+                            <img src="{{ post.thumbnail }}" class="wide_img" alt="{{ post.title }}" srcset="" loading="lazy">
+                        {% else %}
+                            <img src="{{ post.thumbnail }}" class="long_img" alt="{{ post.title }}" loading="lazy">
+                        {% endif %}
+    
+                        <div class="player1">
+                            {% if post.embedded == 'False' %}
+                              <div class="tooltip1">
+                                <i class="fa-solid fa-star" id="star-power-exclusive-video"></i>
+                                <p class="tooltiptext" id="tooltipText1">{{site_name}} exclusive</p>
+                              </div>
+                            {% else %}
+                            {% endif %}
+                            <small>{{post.duration}}</small>
+                        </div>
+                    </div>
+                </a>
+        
+
+                <div class="bottom-stuff">
+                    <div class="toplayer">
+                        <div class="username-star">
+                            <h5 class="submission_alert"><span><a href="{% url 'profile_page' username=post.submitted_by %}">{{post.submitted_by}}</a></span></h5>
+                            
+                        </div>
+                        <div class="views-">
+                            <i class="fa-regular fa-eye"></i>
+                            <small>{{post.total_views}}</small>
+                        </div>
+                    </div>
+
+                    <h3 class="post-title">{{ post.title }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    <a href="#" class="more_videos_search">See All Exclusive Videos</a>
+</div>
+
+
+<br>
+
+<div class="trending-tags">
+    <h3>Trending Tags <i class="fa-solid fa-tag"></i></h3>
+    <div class="ttags">
+        <a href="#">Teen</a>
+
+    </div>
+</div>

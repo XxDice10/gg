@@ -5,6 +5,7 @@
     <meta name="description" content="{{ metas.description }}">
     <meta name="rating" content="adult">
     <meta name="application-name" content="{{site_name}}">
+    {% include 'ad_shit/index_banner.html' %}
 {% endblock meta %}
 
 
@@ -21,10 +22,16 @@
 
     {% include 'index_things/hero_section.html' %}
 
-    {% include 'index_things/new_rated_videos.html' %}
+
+    {% if last_video != 'None' and last_video != '1' %}
+        {% include 'index_things/returning_user.html' %}
+
+    {% else %}
+        {% include 'index_things/new_rated_videos.html' %}
+    {% endif %}
 
 
-    {% include 'ad_shit/straight_index_ad.html' %}
+    <div data-banner-id="535918" class="index_banner_ad"></div>
 
 
 {% endblock content %}

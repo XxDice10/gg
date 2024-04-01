@@ -7,8 +7,6 @@ from website import app_functions
 import time
 import numpy as np
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 
 db_path = 'db.sqlite3'
@@ -265,26 +263,22 @@ import traceback
 db_name1 = 'db.sqlite3'
 ab = 'website_post'
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+vectorizer = TfidfVectorizer()
+
 
 def find_similar_titles(target_title, titles, titles1, ):
-    vectorizer = TfidfVectorizer()
+
     title_vectors = vectorizer.fit_transform(titles1)
     
     threshold = 0.15
     target_vector = vectorizer.transform([target_title])
     similarity_scores = cosine_similarity(target_vector, title_vectors)[0]
-    print(title_vectors)
     similar_titles = [(titles[i], similarity) for i, similarity in enumerate(similarity_scores) if similarity > threshold]
     similar_titles.sort(key=lambda x: x[1], reverse=True)  # Sort similar titles by similarity score
     return_titles = [titlee[0] for titlee in similar_titles]
-    return return_titles[:20]
-
-
-
-
-# function that adds filler videos if recommendation is lacking
-def filler_recommendation():
-    pass
+    return return_titles[:8]
 
 
 @execution_time
@@ -294,33 +288,21 @@ def standard_recommendation(last_video):
         with db:
             cur = db.cursor()
             
-            # Combine the queries to fetch both by views and by likes in a single query
-            cur.execute("""
-                            SELECT id
-                            FROM (
-                                SELECT id, ROW_NUMBER() OVER (ORDER BY views DESC) AS view_rank,
-                                        ROW_NUMBER() OVER (ORDER BY likes DESC) AS like_rank
-                                FROM {}
-                            ) AS subquery
-                            WHERE view_rank <= 20 OR like_rank <= 20;
-
-                        
-                        """.format(ab, ab))
+            last_video = str(last_video)
             
-                        # Fetch the combined results
-            combined_results = cur.fetchall()
-
-            # Split the combined results into separate lists for views and likes
-            by_views = [result[0] for result in combined_results]
-
-            # cur.execute(f'SELECT title FROM {ab} LIMIT 1000')
-            # meta_title = [video_title[0] for video_title in cur.fetchall()]
-            # a = find_similar_titles('hot pretty teen slapped', meta_title, meta_title)
-                
-            # ids = [cur.execute(f'SELECT id FROM {ab} WHERE title = ?', (title,)).fetchone()[0] for title in a]
+            # getting title from play_id
+            query = 'SELECT title FROM {} WHERE play_id = ? LIMIT 1'.format(ab)
+            cur.execute(query, (last_video,))
+            target_title = cur.fetchone()[0]
             
-            return_list = list(set(by_views))
-            return return_list
+            # getting the 1000 videos
+            query1 = 'SELECT title FROM {} LIMIT 1005'.format(ab)
+            cur.execute(query1)
+            titles_list = [title[0] for title in cur.fetchall()]
+            
+            IDs = find_similar_titles(target_title, titles_list, titles_list)
+
+            return IDs
     except sqlite3.Error as e:
         print('Sqlite Error', e)
         traceback.print_exc()
@@ -334,6 +316,5 @@ def standard_recommendation(last_video):
     finally:
         db.close()
         
-
-a = standard_recommendation('None')
+a = standard_recommendation('9qWQdXQ3')
 print(a)

@@ -14,10 +14,11 @@ class Post(models.Model):
     tags = models.TextField()
     mediaType = models.TextField(default='NoneType')
     submitted_by = models.TextField(default='none')
-    views = models.TextField(default="0")
+    views = models.TextField(default="0", null=True)
     thumbnail = models.TextField(default='none', null=True)
     duration = models.TextField(default='0', null=True)
     play_id = models.TextField(default=app_functions.generate_random_id) # each time a new post is made i want a new id
+    timestamp = models.DateTimeField(auto_now_add=True)  # Add this line
     
     
     main_likes = models.ManyToManyField(User, related_name="post_like", blank=True)
