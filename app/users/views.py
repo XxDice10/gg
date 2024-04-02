@@ -26,7 +26,7 @@ def check_state2(func):
 
 def login_required2(func):
     def wrapper(request):
-        if views.maintenance == True:
+        if decorators_.maintenance == True:
             context = {}
             return render(request, 'pages/maintenance.html', context)
         elif request.user.is_authenticated:

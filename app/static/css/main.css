@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .customalert {
   background-color: rgb(251, 135, 135);
   padding: 5px;
@@ -1102,9 +1106,10 @@ footer .mobile_footer .bottom img {
   position: relative;
   z-index: 200;
   margin-top: 5px;
+  border: 2px solid white;
 }
 .newvideos h3 {
-  color: white;
+  color: rgb(131, 31, 31);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -1122,6 +1127,7 @@ footer .mobile_footer .bottom img {
   -moz-column-gap: 10px;
        column-gap: 10px;
   row-gap: 20px;
+  border: 2px solid white;
 }
 .newvideos .video_selection .post-title {
   color: white;

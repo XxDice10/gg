@@ -21,6 +21,9 @@ $WARNING: 500;
 $hero_section: 200;
 $footer_zindex: 250;
 
+body {
+    background-color: white;
+}
 
 
 .customalert {
@@ -1458,9 +1461,10 @@ $jumbotron_image: url('/static/mainMedia/beforeenter.jpg');
     position: relative;
     z-index: $hero_section;
     margin-top: 5px;
+    border: $border-white;
     
     h3 {
-        color: white;
+        color: rgb(131, 31, 31);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
         font-size: 20px;
@@ -1479,6 +1483,7 @@ $jumbotron_image: url('/static/mainMedia/beforeenter.jpg');
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 10px;
         row-gap: 20px;
+        border: $border-white;
 
         .post-title {
             color: white;

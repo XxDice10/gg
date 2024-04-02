@@ -18,7 +18,7 @@ class Post(models.Model):
     thumbnail = models.TextField(default='none', null=True)
     duration = models.TextField(default='0', null=True)
     play_id = models.TextField(default=app_functions.generate_random_id) # each time a new post is made i want a new id
-    # timestamp = models.DateTimeField(auto_now_add=True)  # Add this line
+    timestamp = models.DateTimeField(auto_now_add=True)  # Add this line
     # | add the line above when you finish adding full dataset
     
     

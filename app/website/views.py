@@ -53,6 +53,7 @@ basic_context = {
 #* route function for Index Page
 @check_maintenance2
 @check_state
+@execution_time
 def index1(request):
     orientation101 = str(request.COOKIES.get('orientation')) # last_video cookie 
     print('-' *45)
