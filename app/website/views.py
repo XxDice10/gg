@@ -55,8 +55,9 @@ basic_context = {
 @check_state
 def index1(request):
     orientation101 = str(request.COOKIES.get('orientation')) # last_video cookie 
-    
-    if orientation101 == 'straight':
+    print('-' *45)
+    print(orientation101)
+    if orientation101 == 'straight' or orientation101 == "None":
         pass
     elif orientation101 == 'gay':
         return redirect('gay')
@@ -153,6 +154,15 @@ def gay_homepage(request):
 @check_state
 @execution_time   # | Execution time: 0.043350 seconds
 def trans_homepage(request):
+    orientation101 = str(request.COOKIES.get('orientation')) # last_video cookie 
+    print('-' *45)
+    print(type(orientation101))
+    if orientation101 == 'straight' or orientation101 == "None":
+        return redirect('index1')
+    elif orientation101 == 'gay':
+        return redirect('gay')
+    else:
+        return redirect('trans')
     
     
     orientation_.clear()
