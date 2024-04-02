@@ -42,7 +42,8 @@ basic_context = {
     'trackingSystem': random_stuff.trackingSystem,
     'mobile_paragraph': random_stuff.MOBILE_PARAGRAPH,
     'server': server_live,
-    'ddd': random_stuff.ddd
+    'ddd': random_stuff.ddd,
+    "orientation": orientation_[0],
 }
 
 
